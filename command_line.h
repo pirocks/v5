@@ -36,8 +36,10 @@ void console_ask_for_piece_black(bool ai)
 	{
 		int x_in = -1;
 		int y_in = -1;
-		scanf("enter the x coordinate of the black piece you want to move:\n%d",&x_in);
-		scanf("enter the y coordinate of the black piece you want to move:\n%d",&y_in);
+        printf("enter the x coordinate of the black piece you want to move:\n");
+		scanf("%d",&x_in);
+        printf("enter the y coordinate of the black piece you want to move:\n");
+		scanf("%d",&y_in);
 		console_ask_for_move_black(ai,x_in,y_in);
 	}
 }
