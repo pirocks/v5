@@ -15,3 +15,32 @@ position_evaluatev5.h: In function ‘slow_min’:
 position_evaluatev5.h:889:48: warning: unused parameter ‘debug’ [-Wunused-parameter]
  int slow_min(evals_in list_in,int length, bool debug)
                                                 ^
+In file included from main.c:34:0:
+command_line.h: In function ‘console_ask_for_piece_white’:
+command_line.h:19:7: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+  scanf("enter the x coordinate of the white piece you want to move:\n%d",&x_in);
+       ^
+command_line.h:20:7: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+  scanf("enter the y coordinate of the white piece you want to move:\n%d",&y_in);
+       ^
+command_line.h: In function ‘console_ask_for_piece_black’:
+command_line.h:37:8: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+   scanf("enter the x coordinate of the black piece you want to move:\n%d",&x_in);
+        ^
+command_line.h:38:8: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+   scanf("enter the y coordinate of the black piece you want to move:\n%d",&y_in);
+        ^
+command_line.h: In function ‘console_ask_for_move_white’:
+command_line.h:47:7: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+  scanf("enter the x coordinate of where you want to move your white piece:%d\n",&x_end);
+       ^
+command_line.h:48:7: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+  scanf("enter the y coordinate of where you want to move your white piece:%d\n",&y_end);
+       ^
+command_line.h: In function ‘console_ask_for_move_black’:
+command_line.h:64:7: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+  scanf("enter the x coordinate of where you want to move your black piece:%d\n",&x_end);
+       ^
+command_line.h:65:7: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
+  scanf("enter the y coordinate of where you want to move your black piece:%d\n",&y_end);
+       ^
