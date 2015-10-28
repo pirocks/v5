@@ -1,0 +1,600 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 33.34      0.02     0.02     1235     0.02     0.02  displayboard
+ 33.34      0.04     0.02     1228     0.02     0.02  black_count
+ 16.67      0.05     0.01     3897     0.00     0.00  check_board
+  8.33      0.06     0.01     5075     0.00     0.00  valid
+  8.33      0.06     0.01      204     0.02     0.02  black
+  0.00      0.06     0.00     5832     0.00     0.00  is_white
+  0.00      0.06     0.00     5749     0.00     0.00  on_board
+  0.00      0.06     0.00     4873     0.00     0.00  white
+  0.00      0.06     0.00     4405     0.00     0.00  emptyq
+  0.00      0.06     0.00     2200     0.00     0.00  is_black
+  0.00      0.06     0.00     1925     0.00     0.00  w_pawn
+  0.00      0.06     0.00     1422     0.00     0.00  bishop
+  0.00      0.06     0.00     1273     0.00     0.01  move
+  0.00      0.06     0.00     1269     0.00     0.00  copy
+  0.00      0.06     0.00     1269     0.00     0.02  position_evaluate
+  0.00      0.06     0.00     1228     0.00     0.00  white_count
+  0.00      0.06     0.00     1018     0.00     0.00  rook
+  0.00      0.06     0.00      906     0.00     0.00  knight
+  0.00      0.06     0.00      696     0.00     0.05  call
+  0.00      0.06     0.00      672     0.00     0.00  queen
+  0.00      0.06     0.00      472     0.00     0.01  move_list_generate
+  0.00      0.06     0.00      369     0.00     0.00  w_king
+  0.00      0.06     0.00      327     0.00     0.01  call_pawn
+  0.00      0.06     0.00      123     0.00     0.01  call_bishop
+  0.00      0.06     0.00      123     0.00     0.01  call_rook
+  0.00      0.06     0.00       93     0.00     0.00  b_pawn
+  0.00      0.06     0.00       82     0.00     0.01  call_knight
+  0.00      0.06     0.00       41     0.00     0.01  call_king
+  0.00      0.06     0.00       41     0.00     0.00  call_queen
+  0.00      0.06     0.00       41     0.00     0.00  call_white
+  0.00      0.06     0.00       41     0.00     0.00  max
+  0.00      0.06     0.00       41     0.00     0.00  min_max
+  0.00      0.06     0.00       34     0.00     1.75  last_call
+  0.00      0.06     0.00       30     0.00     0.00  print_move
+  0.00      0.06     0.00       16     0.00     0.00  b_king
+  0.00      0.06     0.00       16     0.00     1.76  last_call_pawn
+  0.00      0.06     0.00       14     0.00     0.00  optimize
+  0.00      0.06     0.00        8     0.00     0.00  compare_int_lists
+  0.00      0.06     0.00        6     0.00     1.76  last_call_bishop
+  0.00      0.06     0.00        6     0.00     1.76  last_call_rook
+  0.00      0.06     0.00        5     0.00     0.00  mouse
+  0.00      0.06     0.00        5     0.00     0.00  printcolored_board
+  0.00      0.06     0.00        4     0.00     1.76  last_call_knight
+  0.00      0.06     0.00        4     0.00     0.00  print_board
+  0.00      0.06     0.00        3     0.00     0.01  ask_for_piece_white
+  0.00      0.06     0.00        2     0.00     0.02  ask_for_move_white
+  0.00      0.06     0.00        2     0.00    29.96  ask_for_piece_black
+  0.00      0.06     0.00        2     0.00    29.93  get_move
+  0.00      0.06     0.00        2     0.00    29.93  last_call_black
+  0.00      0.06     0.00        2     0.00     1.76  last_call_king
+  0.00      0.06     0.00        2     0.00     3.52  last_call_queen
+  0.00      0.06     0.00        2     0.00     0.00  last_min
+  0.00      0.06     0.00        2     0.00     0.00  last_min_max
+  0.00      0.06     0.00        2     0.00     0.01  valid_move
+  0.00      0.06     0.00        1     0.00     0.00  compare_int_lists2d
+  0.00      0.06     0.00        1     0.00     0.02  init
+  0.00      0.06     0.00        1     0.00     0.00  same_boardq
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2014 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 16.67% of 0.06 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00    0.06                 main [1]
+                0.00    0.06       1/1           ask_for_piece_white <cycle 2> [30]
+                0.00    0.00       1/1           init [31]
+                0.00    0.00       1/5           printcolored_board [55]
+                0.00    0.00       1/1           same_boardq [60]
+-----------------------------------------------
+[2]    100.0    0.00    0.06       1+6       <cycle 2 as a whole> [2]
+                0.00    0.06       2             ask_for_piece_black <cycle 2> [3]
+                0.00    0.00       2             ask_for_move_white <cycle 2> [29]
+                0.00    0.00       3             ask_for_piece_white <cycle 2> [30]
+-----------------------------------------------
+                                   2             ask_for_move_white <cycle 2> [29]
+[3]     99.8    0.00    0.06       2         ask_for_piece_black <cycle 2> [3]
+                0.00    0.06       2/2           get_move [4]
+                0.00    0.00       2/1235        displayboard [11]
+                0.00    0.00       2/2           valid_move [32]
+                0.00    0.00       2/4           print_board [56]
+                                   2             ask_for_piece_white <cycle 2> [30]
+-----------------------------------------------
+                0.00    0.06       2/2           ask_for_piece_black <cycle 2> [3]
+[4]     99.8    0.00    0.06       2         get_move [4]
+                0.00    0.06       2/2           last_call_black [5]
+                0.00    0.00       2/2           last_min_max [58]
+-----------------------------------------------
+                0.00    0.06       2/2           get_move [4]
+[5]     99.8    0.00    0.06       2         last_call_black [5]
+                0.00    0.03      16/16          last_call_pawn [9]
+                0.00    0.01       4/4           last_call_knight [17]
+                0.00    0.01       4/6           last_call_rook [13]
+                0.00    0.01       2/2           last_call_queen [18]
+                0.00    0.01       4/6           last_call_bishop [14]
+                0.00    0.00       2/2           last_call_king [22]
+-----------------------------------------------
+                0.00    0.00       2/34          last_call_king [22]
+                0.00    0.01       4/34          last_call_knight [17]
+                0.00    0.01       6/34          last_call_bishop [14]
+                0.00    0.01       6/34          last_call_rook [13]
+                0.00    0.03      16/34          last_call_pawn [9]
+[6]     99.2    0.00    0.06      34         last_call [6]
+                0.00    0.06      41/41          position_evaluate <cycle 1> [10]
+                0.00    0.00      82/3897        check_board [15]
+                0.00    0.00      41/1273        move [19]
+                0.00    0.00      41/1269        copy [24]
+                0.00    0.00      41/5075        valid [16]
+                0.00    0.00      30/30          print_move [50]
+-----------------------------------------------
+[7]     98.2    0.00    0.06      41+2702    <cycle 1 as a whole> [7]
+                0.00    0.03     696             call <cycle 1> [8]
+                0.00    0.02    1269             position_evaluate <cycle 1> [10]
+                0.00    0.00     327             call_pawn <cycle 1> [23]
+                0.00    0.00     123             call_bishop <cycle 1> [25]
+                0.00    0.00     123             call_rook <cycle 1> [26]
+                0.00    0.00      82             call_knight <cycle 1> [27]
+                0.00    0.00      41             call_king <cycle 1> [28]
+                0.00    0.00      41             call_white <cycle 1> [47]
+                0.00    0.00      41             call_queen <cycle 1> [46]
+-----------------------------------------------
+                                  41             call_king <cycle 1> [28]
+                                  82             call_knight <cycle 1> [27]
+                                 123             call_bishop <cycle 1> [25]
+                                 123             call_rook <cycle 1> [26]
+                                 327             call_pawn <cycle 1> [23]
+[8]     52.9    0.00    0.03     696         call <cycle 1> [8]
+                0.02    0.00    1228/1235        displayboard [11]
+                0.00    0.01    1228/1273        move [19]
+                0.00    0.00    1228/1269        copy [24]
+                0.00    0.00    1228/5075        valid [16]
+                                1228             position_evaluate <cycle 1> [10]
+-----------------------------------------------
+                0.00    0.03      16/16          last_call_black [5]
+[9]     47.0    0.00    0.03      16         last_call_pawn [9]
+                0.00    0.03      16/34          last_call [6]
+                0.00    0.00      16/472         move_list_generate [21]
+                0.00    0.00      16/5832        is_white [33]
+                0.00    0.00      16/2200        is_black [37]
+-----------------------------------------------
+                                1228             call <cycle 1> [8]
+                0.00    0.06      41/41          last_call [6]
+[10]    33.3    0.00    0.02    1269         position_evaluate <cycle 1> [10]
+                0.02    0.00    1228/1228        black_count [12]
+                0.00    0.00    1228/1228        white_count [40]
+                0.00    0.00      41/41          min_max [49]
+                                  41             call_white <cycle 1> [47]
+-----------------------------------------------
+                0.00    0.00       1/1235        init [31]
+                0.00    0.00       2/1235        ask_for_piece_white <cycle 2> [30]
+                0.00    0.00       2/1235        ask_for_move_white <cycle 2> [29]
+                0.00    0.00       2/1235        ask_for_piece_black <cycle 2> [3]
+                0.02    0.00    1228/1235        call <cycle 1> [8]
+[11]    33.3    0.02    0.00    1235         displayboard [11]
+-----------------------------------------------
+                0.02    0.00    1228/1228        position_evaluate <cycle 1> [10]
+[12]    33.3    0.02    0.00    1228         black_count [12]
+-----------------------------------------------
+                0.00    0.00       2/6           last_call_queen [18]
+                0.00    0.01       4/6           last_call_black [5]
+[13]    17.6    0.00    0.01       6         last_call_rook [13]
+                0.00    0.01       6/34          last_call [6]
+                0.00    0.00      25/5075        valid [16]
+-----------------------------------------------
+                0.00    0.00       2/6           last_call_queen [18]
+                0.00    0.01       4/6           last_call_black [5]
+[14]    17.6    0.00    0.01       6         last_call_bishop [14]
+                0.00    0.01       6/34          last_call [6]
+                0.00    0.00      24/5075        valid [16]
+-----------------------------------------------
+                0.00    0.00      82/3897        last_call [6]
+                0.00    0.00    1269/3897        copy [24]
+                0.01    0.00    2546/3897        move [19]
+[15]    16.7    0.01    0.00    3897         check_board [15]
+-----------------------------------------------
+                0.00    0.00       2/5075        valid_move [32]
+                0.00    0.00      24/5075        last_call_bishop [14]
+                0.00    0.00      25/5075        last_call_rook [13]
+                0.00    0.00      41/5075        last_call [6]
+                0.00    0.00     492/5075        call_rook <cycle 1> [26]
+                0.00    0.00     859/5075        call_bishop <cycle 1> [25]
+                0.00    0.00    1228/5075        call <cycle 1> [8]
+                0.00    0.00    2404/5075        move_list_generate [21]
+[16]    16.7    0.01    0.01    5075         valid [16]
+                0.01    0.00     204/204         black [20]
+                0.00    0.00    5075/5832        is_white [33]
+                0.00    0.00    4871/4873        white [35]
+                0.00    0.00     204/2200        is_black [37]
+-----------------------------------------------
+                0.00    0.01       4/4           last_call_black [5]
+[17]    11.7    0.00    0.01       4         last_call_knight [17]
+                0.00    0.01       4/34          last_call [6]
+                0.00    0.00       4/472         move_list_generate [21]
+-----------------------------------------------
+                0.00    0.01       2/2           last_call_black [5]
+[18]    11.7    0.00    0.01       2         last_call_queen [18]
+                0.00    0.00       2/6           last_call_rook [13]
+                0.00    0.00       2/6           last_call_bishop [14]
+-----------------------------------------------
+                0.00    0.00       2/1273        valid_move [32]
+                0.00    0.00       2/1273        ask_for_move_white <cycle 2> [29]
+                0.00    0.00      41/1273        last_call [6]
+                0.00    0.01    1228/1273        call <cycle 1> [8]
+[19]    10.9    0.00    0.01    1273         move [19]
+                0.01    0.00    2546/3897        check_board [15]
+-----------------------------------------------
+                0.01    0.00     204/204         valid [16]
+[20]     8.3    0.01    0.00     204         black [20]
+                0.00    0.00      93/93          b_pawn [45]
+                0.00    0.00      45/906         knight [42]
+                0.00    0.00      18/1018        rook [41]
+                0.00    0.00      16/1422        bishop [39]
+                0.00    0.00      16/672         queen [43]
+                0.00    0.00      16/16          b_king [51]
+-----------------------------------------------
+                0.00    0.00       2/472         last_call_king [22]
+                0.00    0.00       4/472         last_call_knight [17]
+                0.00    0.00      16/472         last_call_pawn [9]
+                0.00    0.00      41/472         call_king <cycle 1> [28]
+                0.00    0.00      82/472         call_knight <cycle 1> [27]
+                0.00    0.00     327/472         call_pawn <cycle 1> [23]
+[21]     7.9    0.00    0.00     472         move_list_generate [21]
+                0.00    0.00    2404/5075        valid [16]
+-----------------------------------------------
+                0.00    0.00       2/2           last_call_black [5]
+[22]     5.9    0.00    0.00       2         last_call_king [22]
+                0.00    0.00       2/34          last_call [6]
+                0.00    0.00       2/472         move_list_generate [21]
+-----------------------------------------------
+                                 327             call_white <cycle 1> [47]
+[23]     5.5    0.00    0.00     327         call_pawn <cycle 1> [23]
+                0.00    0.00     327/472         move_list_generate [21]
+                0.00    0.00     327/5832        is_white [33]
+                                 327             call <cycle 1> [8]
+-----------------------------------------------
+                0.00    0.00      41/1269        last_call [6]
+                0.00    0.00    1228/1269        call <cycle 1> [8]
+[24]     5.4    0.00    0.00    1269         copy [24]
+                0.00    0.00    1269/3897        check_board [15]
+-----------------------------------------------
+                                  41             call_queen <cycle 1> [46]
+                                  82             call_white <cycle 1> [47]
+[25]     2.8    0.00    0.00     123         call_bishop <cycle 1> [25]
+                0.00    0.00     859/5075        valid [16]
+                                 123             call <cycle 1> [8]
+-----------------------------------------------
+                                  41             call_queen <cycle 1> [46]
+                                  82             call_white <cycle 1> [47]
+[26]     1.6    0.00    0.00     123         call_rook <cycle 1> [26]
+                0.00    0.00     492/5075        valid [16]
+                                 123             call <cycle 1> [8]
+-----------------------------------------------
+                                  82             call_white <cycle 1> [47]
+[27]     1.4    0.00    0.00      82         call_knight <cycle 1> [27]
+                0.00    0.00      82/472         move_list_generate [21]
+                                  82             call <cycle 1> [8]
+-----------------------------------------------
+                                  41             call_white <cycle 1> [47]
+[28]     0.7    0.00    0.00      41         call_king <cycle 1> [28]
+                0.00    0.00      41/472         move_list_generate [21]
+                                  41             call <cycle 1> [8]
+-----------------------------------------------
+                                   2             ask_for_piece_white <cycle 2> [30]
+[29]     0.1    0.00    0.00       2         ask_for_move_white <cycle 2> [29]
+                0.00    0.00       2/1235        displayboard [11]
+                0.00    0.00       2/1273        move [19]
+                0.00    0.00       2/5           mouse [54]
+                0.00    0.00       2/4873        white [35]
+                0.00    0.00       2/4           print_board [56]
+                                   2             ask_for_piece_black <cycle 2> [3]
+-----------------------------------------------
+                                   2             ask_for_piece_black <cycle 2> [3]
+                0.00    0.06       1/1           main [1]
+[30]     0.1    0.00    0.00       3         ask_for_piece_white <cycle 2> [30]
+                0.00    0.00       2/1235        displayboard [11]
+                0.00    0.00       3/5           mouse [54]
+                                   2             ask_for_move_white <cycle 2> [29]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[31]     0.0    0.00    0.00       1         init [31]
+                0.00    0.00       1/1235        displayboard [11]
+                0.00    0.00      14/14          optimize [52]
+-----------------------------------------------
+                0.00    0.00       2/2           ask_for_piece_black <cycle 2> [3]
+[32]     0.0    0.00    0.00       2         valid_move [32]
+                0.00    0.00       2/1273        move [19]
+                0.00    0.00       2/5075        valid [16]
+-----------------------------------------------
+                0.00    0.00      10/5832        b_king [51]
+                0.00    0.00      12/5832        bishop [39]
+                0.00    0.00      14/5832        rook [41]
+                0.00    0.00      16/5832        last_call_pawn [9]
+                0.00    0.00      28/5832        b_pawn [45]
+                0.00    0.00      30/5832        knight [42]
+                0.00    0.00     320/5832        printcolored_board [55]
+                0.00    0.00     327/5832        call_pawn <cycle 1> [23]
+                0.00    0.00    5075/5832        valid [16]
+[33]     0.0    0.00    0.00    5832         is_white [33]
+-----------------------------------------------
+                0.00    0.00      16/5749        b_king [51]
+                0.00    0.00      93/5749        b_pawn [45]
+                0.00    0.00     369/5749        w_king [44]
+                0.00    0.00     906/5749        knight [42]
+                0.00    0.00    1018/5749        rook [41]
+                0.00    0.00    1422/5749        bishop [39]
+                0.00    0.00    1925/5749        w_pawn [38]
+[34]     0.0    0.00    0.00    5749         on_board [34]
+-----------------------------------------------
+                0.00    0.00       2/4873        ask_for_move_white <cycle 2> [29]
+                0.00    0.00    4871/4873        valid [16]
+[35]     0.0    0.00    0.00    4873         white [35]
+                0.00    0.00    1925/1925        w_pawn [38]
+                0.00    0.00     861/906         knight [42]
+                0.00    0.00     734/1422        bishop [39]
+                0.00    0.00     656/672         queen [43]
+                0.00    0.00     369/369         w_king [44]
+                0.00    0.00     328/1018        rook [41]
+-----------------------------------------------
+                0.00    0.00      90/4405        b_pawn [45]
+                0.00    0.00     304/4405        rook [41]
+                0.00    0.00    1797/4405        w_pawn [38]
+                0.00    0.00    2214/4405        bishop [39]
+[36]     0.0    0.00    0.00    4405         emptyq [36]
+-----------------------------------------------
+                0.00    0.00      16/2200        last_call_pawn [9]
+                0.00    0.00     178/2200        bishop [39]
+                0.00    0.00     204/2200        valid [16]
+                0.00    0.00     241/2200        printcolored_board [55]
+                0.00    0.00     246/2200        w_king [44]
+                0.00    0.00     287/2200        rook [41]
+                0.00    0.00     451/2200        knight [42]
+                0.00    0.00     577/2200        w_pawn [38]
+[37]     0.0    0.00    0.00    2200         is_black [37]
+-----------------------------------------------
+                0.00    0.00    1925/1925        white [35]
+[38]     0.0    0.00    0.00    1925         w_pawn [38]
+                0.00    0.00    1925/5749        on_board [34]
+                0.00    0.00    1797/4405        emptyq [36]
+                0.00    0.00     577/2200        is_black [37]
+-----------------------------------------------
+                0.00    0.00      16/1422        black [20]
+                0.00    0.00     672/1422        queen [43]
+                0.00    0.00     734/1422        white [35]
+[39]     0.0    0.00    0.00    1422         bishop [39]
+                0.00    0.00    2214/4405        emptyq [36]
+                0.00    0.00    1422/5749        on_board [34]
+                0.00    0.00     178/2200        is_black [37]
+                0.00    0.00      12/5832        is_white [33]
+-----------------------------------------------
+                0.00    0.00    1228/1228        position_evaluate <cycle 1> [10]
+[40]     0.0    0.00    0.00    1228         white_count [40]
+-----------------------------------------------
+                0.00    0.00      18/1018        black [20]
+                0.00    0.00     328/1018        white [35]
+                0.00    0.00     672/1018        queen [43]
+[41]     0.0    0.00    0.00    1018         rook [41]
+                0.00    0.00    1018/5749        on_board [34]
+                0.00    0.00     304/4405        emptyq [36]
+                0.00    0.00     287/2200        is_black [37]
+                0.00    0.00      14/5832        is_white [33]
+-----------------------------------------------
+                0.00    0.00      45/906         black [20]
+                0.00    0.00     861/906         white [35]
+[42]     0.0    0.00    0.00     906         knight [42]
+                0.00    0.00     906/5749        on_board [34]
+                0.00    0.00     451/2200        is_black [37]
+                0.00    0.00      30/5832        is_white [33]
+-----------------------------------------------
+                0.00    0.00      16/672         black [20]
+                0.00    0.00     656/672         white [35]
+[43]     0.0    0.00    0.00     672         queen [43]
+                0.00    0.00     672/1018        rook [41]
+                0.00    0.00     672/1422        bishop [39]
+-----------------------------------------------
+                0.00    0.00     369/369         white [35]
+[44]     0.0    0.00    0.00     369         w_king [44]
+                0.00    0.00     369/5749        on_board [34]
+                0.00    0.00     246/2200        is_black [37]
+-----------------------------------------------
+                0.00    0.00      93/93          black [20]
+[45]     0.0    0.00    0.00      93         b_pawn [45]
+                0.00    0.00      93/5749        on_board [34]
+                0.00    0.00      90/4405        emptyq [36]
+                0.00    0.00      28/5832        is_white [33]
+-----------------------------------------------
+                                  41             call_white <cycle 1> [47]
+[46]     0.0    0.00    0.00      41         call_queen <cycle 1> [46]
+                                  41             call_rook <cycle 1> [26]
+                                  41             call_bishop <cycle 1> [25]
+-----------------------------------------------
+                                  41             position_evaluate <cycle 1> [10]
+[47]     0.0    0.00    0.00      41         call_white <cycle 1> [47]
+                                 327             call_pawn <cycle 1> [23]
+                                  82             call_knight <cycle 1> [27]
+                                  82             call_bishop <cycle 1> [25]
+                                  82             call_rook <cycle 1> [26]
+                                  41             call_king <cycle 1> [28]
+                                  41             call_queen <cycle 1> [46]
+-----------------------------------------------
+                0.00    0.00      41/41          min_max [49]
+[48]     0.0    0.00    0.00      41         max [48]
+-----------------------------------------------
+                0.00    0.00      41/41          position_evaluate <cycle 1> [10]
+[49]     0.0    0.00    0.00      41         min_max [49]
+                0.00    0.00      41/41          max [48]
+-----------------------------------------------
+                0.00    0.00      30/30          last_call [6]
+[50]     0.0    0.00    0.00      30         print_move [50]
+-----------------------------------------------
+                0.00    0.00      16/16          black [20]
+[51]     0.0    0.00    0.00      16         b_king [51]
+                0.00    0.00      16/5749        on_board [34]
+                0.00    0.00      10/5832        is_white [33]
+-----------------------------------------------
+                0.00    0.00      14/14          init [31]
+[52]     0.0    0.00    0.00      14         optimize [52]
+-----------------------------------------------
+                0.00    0.00       8/8           compare_int_lists2d [59]
+[53]     0.0    0.00    0.00       8         compare_int_lists [53]
+-----------------------------------------------
+                0.00    0.00       2/5           ask_for_move_white <cycle 2> [29]
+                0.00    0.00       3/5           ask_for_piece_white <cycle 2> [30]
+[54]     0.0    0.00    0.00       5         mouse [54]
+-----------------------------------------------
+                0.00    0.00       1/5           main [1]
+                0.00    0.00       4/5           print_board [56]
+[55]     0.0    0.00    0.00       5         printcolored_board [55]
+                0.00    0.00     320/5832        is_white [33]
+                0.00    0.00     241/2200        is_black [37]
+-----------------------------------------------
+                0.00    0.00       2/4           ask_for_move_white <cycle 2> [29]
+                0.00    0.00       2/4           ask_for_piece_black <cycle 2> [3]
+[56]     0.0    0.00    0.00       4         print_board [56]
+                0.00    0.00       4/5           printcolored_board [55]
+-----------------------------------------------
+                0.00    0.00       2/2           last_min_max [58]
+[57]     0.0    0.00    0.00       2         last_min [57]
+-----------------------------------------------
+                0.00    0.00       2/2           get_move [4]
+[58]     0.0    0.00    0.00       2         last_min_max [58]
+                0.00    0.00       2/2           last_min [57]
+-----------------------------------------------
+                0.00    0.00       1/1           same_boardq [60]
+[59]     0.0    0.00    0.00       1         compare_int_lists2d [59]
+                0.00    0.00       8/8           compare_int_lists [53]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[60]     0.0    0.00    0.00       1         same_boardq [60]
+                0.00    0.00       1/1           compare_int_lists2d [59]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2014 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [29] ask_for_move_white     [11] displayboard           [19] move
+   [3] ask_for_piece_black    [36] emptyq                 [21] move_list_generate
+  [30] ask_for_piece_white     [4] get_move               [34] on_board
+  [51] b_king                 [31] init                   [52] optimize
+  [45] b_pawn                 [37] is_black               [10] position_evaluate
+  [39] bishop                 [33] is_white               [56] print_board
+  [20] black                  [42] knight                 [50] print_move
+  [12] black_count             [6] last_call              [55] printcolored_board
+   [8] call                   [14] last_call_bishop       [43] queen
+  [25] call_bishop             [5] last_call_black        [41] rook
+  [28] call_king              [22] last_call_king         [60] same_boardq
+  [27] call_knight            [17] last_call_knight       [16] valid
+  [23] call_pawn               [9] last_call_pawn         [32] valid_move
+  [46] call_queen             [18] last_call_queen        [44] w_king
+  [26] call_rook              [13] last_call_rook         [38] w_pawn
+  [47] call_white             [57] last_min               [35] white
+  [15] check_board            [58] last_min_max           [40] white_count
+  [53] compare_int_lists      [48] max                     [7] <cycle 1>
+  [59] compare_int_lists2d    [49] min_max                 [2] <cycle 2>
+  [24] copy                   [54] mouse

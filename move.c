@@ -5,7 +5,7 @@ void displayboard(board board_in);
 
 boardp move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castlingq)
 {
-	assert(check_board(*board_in));
+	//assert(check_board(*board_in));
 	if (! castlingq)
 	{
 		int piece = (*board_in)[y_in][x_in];
@@ -13,7 +13,7 @@ boardp move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castl
 		(*board_in)[y_in][x_in] = blank  ;
 		//displayboard(*board_in);
 		//print_board(*board_in);
-		assert(check_board(*board_in));
+		//assert(check_board(*board_in));
 		return board_in;
 	}
 	else
