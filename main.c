@@ -133,7 +133,7 @@ board global_boardb = {
     {blank,blank,blank,blank,wpawn,blank,blank,blank},
     {blank,blank,blank,blank,wking,blank,blank,blank},
     };*/
-    
+
 //board global_board = {
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //{bl,bl,bl,bl,bl,bl,bl,bl},
@@ -161,20 +161,20 @@ void displayboard(board board_in);
 void init()
 {
 	SDL_Init( SDL_INIT_EVERYTHING );
-	boardimage = optimize(IMG_Load("board.jpg"));
-	brook_image = optimize(IMG_Load("brook.png"));
-	bknight_image = optimize(IMG_Load("bknight.png"));
-	bbishop_image = optimize(IMG_Load("bbishop.png"));
-	bqueen_image = optimize(IMG_Load("bqueen.png"));
-	bking_image = optimize(IMG_Load("bking.png"));
-	bpawn_image = optimize(IMG_Load("bpawn.png"));
-	wrook_image = optimize(IMG_Load("wrook.png"));
+	boardimage = optimize(IMG_Load("pics/board.jpg"));
+	brook_image = optimize(IMG_Load("pics/brook.png"));
+	bknight_image = optimize(IMG_Load("pics/bknight.png"));
+	bbishop_image = optimize(IMG_Load("pics/bbishop.png"));
+	bqueen_image = optimize(IMG_Load("pics/bqueen.png"));
+	bking_image = optimize(IMG_Load("pics/bking.png"));
+	bpawn_image = optimize(IMG_Load("pics/bpawn.png"));
+	wrook_image = optimize(IMG_Load("pics/wrook.png"));
 	wknight_image = optimize(IMG_Load("wknight.png"));
-	wbishop_image = optimize(IMG_Load("wbishop.png"));
-	wqueen_image = optimize(IMG_Load("wqueen.png"));
-	wking_image = optimize(IMG_Load("wking.png"));
-	wpawn_image = optimize(IMG_Load("wpawn.png"));
-	transparency = optimize(IMG_Load("transparency.png"));
+	wbishop_image = optimize(IMG_Load("pics/wbishop.png"));
+	wqueen_image = optimize(IMG_Load("pics/wqueen.png"));
+	wking_image = optimize(IMG_Load("pics/wking.png"));
+	wpawn_image = optimize(IMG_Load("pics/wpawn.png"));
+	transparency = optimize(IMG_Load("pics/transparency.png"));
 	screen = SDL_SetVideoMode( 1000, 1000, 8, SDL_SWSURFACE );
 	SDL_WM_SetCaption( "Chess", NULL );
 	SDL_BlitSurface( boardimage, NULL, screen, NULL );
