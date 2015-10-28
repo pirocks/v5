@@ -134,7 +134,7 @@ board global_boardb = {
     {blank,blank,blank,blank,wking,blank,blank,blank},
     };*/
 
-//board global_board = {
+/*//board global_board = {
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //{bl,bl,bl,bl,bl,bl,bl,bl},
@@ -143,7 +143,7 @@ board global_boardb = {
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //{bl,bl,bl,bl,bl,bl,bl,bl},
-    //};
+    //};*/
 
 SDL_Surface *optimize (SDL_Surface *surf)
 {
@@ -161,7 +161,7 @@ void displayboard(board board_in);
 void init()
 {
 	SDL_Init( SDL_INIT_EVERYTHING );
-	boardimage = optimize(IMG_Load("pics/board.jpg"));
+	boardimage = optimize(IMG_Load("board.jpg"));
 	brook_image = optimize(IMG_Load("pics/brook.png"));
 	bknight_image = optimize(IMG_Load("pics/bknight.png"));
 	bbishop_image = optimize(IMG_Load("pics/bbishop.png"));
@@ -375,7 +375,7 @@ void ask_for_piece_black()
 	{
 		move_to_dop answer;
 		debug--;
-		answer = get_move(global_board,2,false,false);
+		answer = get_move(global_board,3,false,false);
 		printf("\n got to here\n");
 		valid_move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
 		print_board(global_board);
@@ -453,22 +453,6 @@ void ask_for_move_black(int x_in, int y_in)
 
 int main()
 {
- //   int array[2] = {1,5};
-   // printf("%d\n",array[2]);
-    printcolored_board(global_board);
-    //assert(false);
-    debug_warp = true;
-    if(!debug_warp)init();
-    printf("inited\n");
-    if(same_boardq(global_boarda,global_boardb))
-	printf("equal\n");
-    else
-	printf("not equal\n");
-    if(!debug_warp)
-	console_ask_for_piece_white(true);
-    else
-    {
-	get_move(global_board,1,true,true);
-	sleep(1000);
-    }
+    init();
+    ask_for_piece_white();
 }
