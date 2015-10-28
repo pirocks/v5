@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <stdbool.h>
 //#include "valid.h"
-#include "position_evaluatev5.h"
+//#include "position_evaluatev5.h"
 extern board global_board;
 
 
@@ -46,7 +46,7 @@ void console_ask_for_move_white(bool ai, int x_in, int y_in)
 	int y_end = -1;
 	scanf("enter the x coordinate of where you want to move your white piece:%d\n",&x_end);
 	scanf("enter the y coordinate of where you want to move your white piece:%d\n",&y_end);
-	if(valid(global_board,x_in,y_in,x_end,y_end,false));
+	if(valid(global_board,x_in,y_in,x_end,y_end))
 	{
 		move(&global_board,x_in,y_in,x_end,y_end,false);
 	}
@@ -63,7 +63,7 @@ void console_ask_for_move_black(bool ai, int x_in, int y_in)
 	int y_end = -1;
 	scanf("enter the x coordinate of where you want to move your black piece:%d\n",&x_end);
 	scanf("enter the y coordinate of where you want to move your black piece:%d\n",&y_end);
-	if(valid(global_board,x_in,y_in,x_end,y_end,false))
+	if(valid(global_board,x_in,y_in,x_end,y_end))
 	{
 		move(&global_board,x_in,y_in,x_end,y_end,false);
 	}

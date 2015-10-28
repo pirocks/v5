@@ -1,8 +1,4 @@
 In file included from main.c:32:0:
-position_evaluatev5.h: In function ‘max’:
-position_evaluatev5.h:183:51: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
-     if(current != slow_max(list_in,length, debug));
-                                                   ^
 position_evaluatev5.h: In function ‘min_max’:
 position_evaluatev5.h:214:78: warning: unused parameter ‘depth’ [-Wunused-parameter]
  int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth)

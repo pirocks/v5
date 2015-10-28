@@ -180,7 +180,7 @@ int max(evals_in list_in,int length, bool debug)
     if(debug)
     {assert(false);}
     else
-    if(current != slow_max(list_in,length, debug));
+    if(current != slow_max(list_in,length, debug))
     {
 	printf("slow max: %d\n",slow_max(list_in,length, debug));
 	printf("current:%d\n",current);

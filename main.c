@@ -31,7 +31,7 @@
 //#include "position_evaluate.c"
 #include "position_evaluatev5.h"
 #include <time.h>
-
+#include "command_line.h"
 bool debug_warp = 0;
 
 SDL_Surface *screen;
@@ -465,7 +465,7 @@ int main()
     else
 	printf("not equal\n");
     if(!debug_warp)
-	ask_for_piece_white();
+	console_ask_for_piece_white(true);
     else
     {
 	get_move(global_board,1,true,true);
