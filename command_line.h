@@ -68,8 +68,10 @@ void console_ask_for_move_black(bool ai, int x_in, int y_in)
 {
 	int x_end = -1;
 	int y_end = -1;
-	scanf("enter the x coordinate of where you want to move your black piece:%d\n",&x_end);
-	scanf("enter the y coordinate of where you want to move your black piece:%d\n",&y_end);
+    printf("enter the x coordinate of where you want to move your black piece:\n");
+	scanf("%d",&x_end);
+    printf("enter the y coordinate of where you want to move your black piece:\n")
+	scanf("%d",&y_end);
 	if(valid(global_board,x_in,y_in,x_end,y_end))
 	{
 		move(&global_board,x_in,y_in,x_end,y_end,false);
