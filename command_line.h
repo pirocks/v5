@@ -27,6 +27,7 @@ void console_ask_for_piece_black(bool ai)
 	{
 		move_to_dop answer = get_move(global_board,5,false,false);
 		move(&global_board,(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],false);
+        print_move(*answer);
 		console_ask_for_piece_white(ai);
 	}
 	else
@@ -51,7 +52,7 @@ void console_ask_for_move_white(bool ai, int x_in, int y_in)
 	}
 	else
 	{
-		printf("not valid");
+		printf("not valid\n");
 		console_ask_for_piece_white(ai);
 	}
 }
@@ -68,7 +69,7 @@ void console_ask_for_move_black(bool ai, int x_in, int y_in)
 	}
 	else
 	{
-		printf("not valid");
-        console_ask_for_piece_white(ai);
+		printf("not valid\n");
+        console_ask_for_piece_black(ai);
 	}
 }
