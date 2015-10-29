@@ -1,3 +1,12 @@
+extern a_move white_moves[4];
+extern a_move black_moves[4];
+extern a_move white_moves_final[4];
+extern a_move black_moves_final[4];
+extern a_move knight_moves[8];
+extern a_move king_moves[8];
+
+
+
 
 move_to_dop last_max(move_to_dop list_in[],int length, bool debug)
 {
