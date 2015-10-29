@@ -1,31 +1,9 @@
-ii  libsdl-image1.2:amd64                 1.2.12-5build2                             amd64        Image loading library for Simple DirectMedia Layer 1.2, libraries
-ii  libsdl-image1.2-dbg:amd64             1.2.12-5build2                             amd64        Image loading library for Simple DirectMedia Layer 1.2, debugging
-ii  libsdl-image1.2-dev:amd64             1.2.12-5build2                             amd64        Image loading library for Simple DirectMedia Layer 1.2, development files
-ii  libsdl-mixer1.2:amd64                 1.2.12-10                                  amd64        Mixer library for Simple DirectMedia Layer 1.2, libraries
-ii  libsdl-mixer1.2-dbg:amd64             1.2.12-10                                  amd64        Mixer library for Simple DirectMedia Layer 1.2, debugging
-ii  libsdl-mixer1.2-dev:amd64             1.2.12-10                                  amd64        Mixer library for Simple DirectMedia Layer 1.2, development files
-ii  libsdl-ttf-gst                        3.2.4-2                                    all          SDL_ttf bindings for GNU Smalltalk
-ii  libsdl-ttf2.0-0:amd64                 2.0.11-3                                   amd64        TrueType Font library for Simple DirectMedia Layer 1.2, libraries
-ii  libsdl-ttf2.0-dev:amd64               2.0.11-3                                   amd64        TrueType Font library for Simple DirectMedia Layer 1.2, development files
-ii  libsdl1.2-dbg:amd64                   1.2.15-8ubuntu1.1                          amd64        Simple DirectMedia Layer debug files
-ii  libsdl1.2-dev                         1.2.15-8ubuntu1.1                          amd64        Simple DirectMedia Layer development files
-ii  libsdl1.2debian:amd64                 1.2.15-8ubuntu1.1                          amd64        Simple DirectMedia Layer
-ii  libsdl2-2.0-0:amd64                   2.0.2+dfsg1-3ubuntu1.1                     amd64        Simple DirectMedia Layer
-ii  libsdl2-dbg:amd64                     2.0.2+dfsg1-3ubuntu1.1                     amd64        Simple DirectMedia Layer debug files
-ii  libsdl2-dev                           2.0.2+dfsg1-3ubuntu1.1                     amd64        Simple DirectMedia Layer development files
-ii  libsdl2-gfx-1.0-0:amd64               1.0.0-2                                    amd64        drawing and graphical effects extension for SDL2
-ii  libsdl2-gfx-dbg:amd64                 1.0.0-2                                    amd64        debugging symbols for SDL2_gfx
-ii  libsdl2-gfx-dev:amd64                 1.0.0-2                                    amd64        development files for SDL2_gfx
-ii  libsdl2-gfx-doc                       1.0.0-2                                    all          documentation files for SDL2_gfx
-ii  libsdl2-image-2.0-0:amd64             2.0.0+dfsg-3build2                         amd64        Image loading library for Simple DirectMedia Layer 2, libraries
-ii  libsdl2-image-dbg:amd64               2.0.0+dfsg-3build2                         amd64        Image loading library for Simple DirectMedia Layer 2, debugging symbols
-ii  libsdl2-image-dev:amd64               2.0.0+dfsg-3build2                         amd64        Image loading library for Simple DirectMedia Layer 2, development files
-ii  libsdl2-mixer-2.0-0:amd64             2.0.0+dfsg1-3                              amd64        Mixer library for Simple DirectMedia Layer 2, libraries
-ii  libsdl2-mixer-dbg:amd64               2.0.0+dfsg1-3                              amd64        Mixer library for Simple DirectMedia Layer 2, debugging
-ii  libsdl2-mixer-dev:amd64               2.0.0+dfsg1-3                              amd64        Mixer library for Simple DirectMedia Layer 2, development files
-ii  libsdl2-net-2.0-0:amd64               2.0.0+dfsg1-2                              amd64        Network library for Simple DirectMedia Layer 2, libraries
-ii  libsdl2-net-dbg:amd64                 2.0.0+dfsg1-2                              amd64        Network library for Simple DirectMedia Layer 2, debugging
-ii  libsdl2-net-dev:amd64                 2.0.0+dfsg1-2                              amd64        Network library for Simple DirectMedia Layer 2, development files
-ii  libsdl2-ttf-2.0-0:amd64               2.0.12+dfsg1-2                             amd64        TrueType Font library for Simple DirectMedia Layer 2, libraries
-ii  libsdl2-ttf-dbg:amd64                 2.0.12+dfsg1-2                             amd64        TrueType Font library for Simple DirectMedia Layer 2, debugging
-ii  libsdl2-ttf-dev:amd64                 2.0.12+dfsg1-2                             amd64        TrueType Font library for Simple DirectMedia Layer 2, development files
+ii  libsdl-image-gst                                3.2.4-2                                 all          SDL_image bindings for GNU Smalltalk
+ii  libsdl-image1.2:armhf                           1.2.12-2                                armhf        Image loading library for Simple DirectMedia Layer 1.2, libraries
+ii  libsdl-image1.2-dev:armhf                       1.2.12-2                                armhf        Image loading library for Simple DirectMedia Layer 1.2, development files
+ii  libsdl-mixer1.2:armhf                           1.2.12-3                                armhf        Mixer library for Simple DirectMedia Layer 1.2, libraries
+ii  libsdl-ttf2.0-0:armhf                           2.0.11-2                                armhf        TrueType Font library for Simple DirectMedia Layer 1.2, libraries
+ii  libsdl1.2-dbg:armhf                             1.2.15-5+rpi1                           armhf        Simple DirectMedia Layer debug files
+ii  libsdl1.2-dev                                   1.2.15-5+rpi1                           armhf        Simple DirectMedia Layer development files
+ii  libsdl1.2debian:armhf                           1.2.15-5+rpi1                           armhf        Simple DirectMedia Layer
+
