@@ -1,5 +1,5 @@
 #!/bin/bash
-cmd="gcc-4.9 -pg `sdl-config --cflags` `sdl-config --libs` -o chess main.c -lSDL -lSDL_image -lX11 -std=c99 -Wall -pthread -pedantic -Wextra -Wunused-parameter -fsanitize=address -fno-omit-frame-pointer"
+cmd="gcc-4.8 -pg `sdl-config --cflags` `sdl-config --libs` -o chess main.c -lSDL -lSDL_image -lX11 -std=c99 -Wall -pthread -pedantic -Wextra -Wunused-parameter -fsanitize=address -fno-omit-frame-pointer"
 
 echo $cmd
 $cmd &> output.txt

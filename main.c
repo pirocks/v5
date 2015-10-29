@@ -29,7 +29,9 @@
 #include <SDL_image.h>
 #include <stdbool.h>
 //#include "position_evaluate.c"
-#include "position_evaluatev5.h"
+//#include "position_evaluatev5.h"
+#include "position_evaluatev6.h"
+#include "get_move.h"
 #include <time.h>
 #include "command_line.h"
 bool debug_warp = 0;

@@ -1,0 +1,29 @@
+In file included from main.c:36:0:
+command_line.h: In function 'console_ask_for_piece_white':
+command_line.h:21:7: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+  scanf("%d",&x_in);
+       ^
+command_line.h:23:7: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+  scanf("%d",&y_in);
+       ^
+command_line.h: In function 'console_ask_for_piece_black':
+command_line.h:41:8: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+   scanf("%d",&x_in);
+        ^
+command_line.h:43:8: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+   scanf("%d",&y_in);
+        ^
+command_line.h: In function 'console_ask_for_move_white':
+command_line.h:53:7: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+  scanf("%d",&x_end);
+       ^
+command_line.h:55:10: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+     scanf("%d",&y_end);
+          ^
+command_line.h: In function 'console_ask_for_move_black':
+command_line.h:73:7: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+  scanf("%d",&x_end);
+       ^
+command_line.h:75:7: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+  scanf("%d",&y_end);
+       ^
