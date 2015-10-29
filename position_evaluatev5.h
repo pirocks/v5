@@ -137,7 +137,7 @@ int position_evaluate(/*evals_inp list_in,int *list_in_index,*/board board_in, i
     if(depth == 0)
     {
 	////assert(check_board(board_in));
-	if(white_count(board_in,debug) - black_count(board_in,debug)==1)
+	if(white_count(board_in,debug) - black_count(board_in,debug)==3)
 	    print_board(board_in);
 	return (white_count(board_in,debug) - black_count(board_in,debug));
     }

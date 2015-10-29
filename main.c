@@ -375,7 +375,7 @@ void ask_for_piece_black()
 	{
 		move_to_dop answer;
 		debug--;
-		answer = get_move(global_board,3,false,false);
+		answer = get_move(global_board,4,false,false);
 		printf("\n got to here\n");
 		valid_move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
 		print_board(global_board);
