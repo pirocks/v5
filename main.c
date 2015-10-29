@@ -453,6 +453,7 @@ void ask_for_move_black(int x_in, int y_in)
 
 int main()
 {
-    //init();
-    console_ask_for_piece_white(true);
+    init();
+    //console_ask_for_piece_white(true);
+    ask_for_piece_white(true);
 }

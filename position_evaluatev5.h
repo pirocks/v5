@@ -222,6 +222,7 @@ int min(evals_in list_in,int length, bool debug)
 
 int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth)
 {
+    (void) depth;
     if(white_to_moveq)
 	return max(list_in,length, debug);
     else
@@ -557,7 +558,8 @@ move_to_dop last_min(move_to_dop list_in[],int length, bool debug)
 
 move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth)
 {
-    if(white_to_moveq)
+    (void) depth;
+    if(!white_to_moveq)
 	return last_max(list_in,length,debug);
     else
 	return last_min(list_in,length,debug);
@@ -709,7 +711,7 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
     printf("length: %d\n",*list_in_index);
     printf("moves list length: %d\n", moves_list_length);
     ////assert(check_board(board_in));
-    //if(debug)for(int i = 0; i < *list_in_index;i++)print_move((*list_in)[i]);
+    if(debug)for(int i = 0; i < *list_in_index;i++)print_move((*list_in)[i]);
     for(int index = 0; index < moves_list_length; index++)
     {
 	//assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
@@ -724,7 +726,7 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
 	if((list_in_foreval)[index] == special)
 	{
 	    list_in_foreval[index] = position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug);
-	    //assert(false);
+	    assert(false);
 	}
     }
     //results recorded
@@ -738,7 +740,7 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
 	(*list_in)[*list_in_index] = current_move;
 	(*list_in_index)++;
     }
-    if(debug)for(int i = 0; i < *list_in_index;i++)print_move((*list_in)[i]);
+    for(int i = 0; i < *list_in_index;i++)print_move((*list_in)[i]);
     //results copied
 }
 
@@ -872,6 +874,7 @@ void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in
 
 int slow_max(evals_in list_in,int length, bool debug)
 {
+    (void) debug;
     evals_in clean;
     int len = 0;
     bool clean_inited = false;
@@ -897,6 +900,7 @@ int slow_max(evals_in list_in,int length, bool debug)
 
 int slow_min(evals_in list_in,int length, bool debug)
 {
+    (void) debug;
     evals_in clean;
     int len = 0;
     bool clean_inited = false;
