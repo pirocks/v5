@@ -178,7 +178,7 @@ int max(evals_in list_in,int length, bool debug)
         }
     }
     if(debug)
-    {assert(false);}
+    {min_max_display(list_in,length,debug);assert(false);}
     else
     if(current != slow_max(list_in,length, debug))
     {
@@ -208,7 +208,7 @@ int min(evals_in list_in,int length, bool debug)
     	}
     }
     if(debug)
-    {assert(false);}
+    { min_max_display(list_in,length,debug);assert(false);}
     else
     if(current != slow_min(list_in,length, debug))
     {
@@ -904,6 +904,7 @@ int slow_min(evals_in list_in,int length, bool debug)
     {
 	if(list_in[i] != special)
 	{
+	    //printf("added : %d\n",list_in[i]);
 	    clean[len] = list_in[i];
 	    len++;
 	    clean_inited = true;
@@ -914,7 +915,7 @@ int slow_min(evals_in list_in,int length, bool debug)
     int min = clean[0];
     for(int i = 1;i < len;i++)
     {
-	if(min < clean[i])
+	if(min > clean[i])
 	    min = clean[i];
     }
     return min;

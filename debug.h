@@ -56,4 +56,15 @@ void print_move(move_to_dop answer)
 }
 
 
-
+void min_max_display(int in[],int length,bool debug)
+{
+    if(debug)
+    {
+	printf("\n[");
+	for(int i = 0;i < length;i++ )
+	{
+	    printf("%d,",in[i]);
+	}
+	printf("]\n");
+    }
+}
