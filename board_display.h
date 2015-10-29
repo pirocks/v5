@@ -81,7 +81,7 @@ void printcolored_board(board board_in)
 					color_string = "  ";
 					break;
 				default:
-					//assert(false);
+					assert(false);
 					break;
 			}
 			if((index1 + index2) % 2 == 0)
