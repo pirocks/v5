@@ -137,12 +137,9 @@ int position_evaluate(/*evals_inp list_in,int *list_in_index,*/board board_in, i
     if(depth == 0)
     {
 	////assert(check_board(board_in));
-	if(white_count(board_in,debug) - black_count(board_in,debug)==10)
-	    assert(false);
-	if(true)
-	    return (white_count(board_in,debug) - black_count(board_in,debug));
-	else
-	    return (black_count(board_in,debug) - white_count(board_in,debug));
+	if(white_count(board_in,debug) - black_count(board_in,debug)==1)
+	    print_board(board_in);
+	return (white_count(board_in,debug) - black_count(board_in,debug));
     }
     else
     {
@@ -559,7 +556,7 @@ move_to_dop last_min(move_to_dop list_in[],int length, bool debug)
 move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth)
 {
     (void) depth;
-    if(!white_to_moveq)
+    if(white_to_moveq)
 	return last_max(list_in,length,debug);
     else
 	return last_min(list_in,length,debug);
