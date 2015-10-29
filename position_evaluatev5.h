@@ -182,17 +182,17 @@ int max(evals_in list_in,int length, bool debug)
     else
     if(current != slow_max(list_in,length, debug))
     {
-	printf("slow max: %d\n",slow_max(list_in,length, debug));
-	printf("current:%d\n",current);
-	max(list_in,length,true);
-	assert(false);
+        printf("slow max: %d\n",slow_max(list_in,length, debug));
+        printf("current:%d\n",current);
+        max(list_in,length,true);
+        assert(false);
     }
     return current;
 }
 
 int min(evals_in list_in,int length, bool debug)
 {
-    if(debug)printf("debug: max: length: %d",length);
+    if(debug)printf("debug: min: length: %d",length);
     if (length == 0)
 	return special;
     int current = list_in[0];
@@ -207,7 +207,16 @@ int min(evals_in list_in,int length, bool debug)
     	    current = list_in[index];
     	}
     }
-    assert(current == slow_min(list_in,length, debug));
+    if(debug)
+    {assert(false);}
+    else
+    if(current != slow_min(list_in,length, debug))
+    {
+        printf("slow min: %d\n",slow_min(list_in,length, debug));
+        printf("current:%d\n",current);
+        min(list_in,length,true);
+        assert(false);
+    }
     return current;
 }
 
