@@ -314,14 +314,14 @@ void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in
     {
         if(moves[index][0] != 0 || moves[index][1] != 0)
         {
-	    //displayboard(board_in);
+	        //displayboard(board_in);
             //assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
             //assert((*list_in)[*list_in_index] == 0);
-	    ptr  = copy(board_in);
+	        ptr  = copy(board_in);
             ////assert((*(ptr + sizeof(board)))[0][0] == 10  && (*(ptr + sizeof(board)))[0][1] == 10 && (*(ptr + sizeof(board)))[0][2] == 10  && (*(ptr + sizeof(board)))[0][3] == 10  && (*(ptr + sizeof(board)))[0][4] == 10);
-	    (*list_in)[*list_in_index] = position_evaluate(/*list_in,list_in_index,*/*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug);
-	    (*list_in_index)++;
-	    ////assert((*(ptr + sizeof(board)))[0][0] == 10  && (*(ptr + sizeof(board)))[0][1] == 10 && (*(ptr + sizeof(board)))[0][2] == 10  && (*(ptr + sizeof(board)))[0][3] == 10  && (*(ptr + sizeof(board)))[0][4] == 10);
+	        (*list_in)[*list_in_index] = position_evaluate(/*list_in,list_in_index,*/*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug);
+	        (*list_in_index)++;
+	        ////assert((*(ptr + sizeof(board)))[0][0] == 10  && (*(ptr + sizeof(board)))[0][1] == 10 && (*(ptr + sizeof(board)))[0][2] == 10  && (*(ptr + sizeof(board)))[0][3] == 10  && (*(ptr + sizeof(board)))[0][4] == 10);
             free(ptr);
         }
         else{}
