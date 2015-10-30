@@ -63,10 +63,11 @@ move_to_dop last_min(move_to_dop list_in[],int length, bool debug)
 move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth)
 {
     (void) depth;
-    if(white_to_moveq)
+    return last_max(list_in,length,debug);
+    /*if(white_to_moveq)
 	    return last_max(list_in,length,debug);
     else
-	    return last_min(list_in,length,debug);
+	    return last_min(list_in,length,debug);*/
 }
 
 typedef move_to_dop moves_in[
@@ -223,15 +224,15 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
         ptr  = copy(board_in);
         ////assert(check_board(board_in));
         //assert(check_board(*ptr));
-        list_in_foreval[index] = position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,false);
+        list_in_foreval[index] = -1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,false);
         //displayboard_norefresh(*ptr);
         //assert(check_board(*ptr));
         free(ptr);
-        if((list_in_foreval)[index] == special)
+        /*if((list_in_foreval)[index] == special)
         {
-            list_in_foreval[index] = position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug);
+            list_in_foreval[index] = -1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug);
             assert(false);
-        }
+        }*/
     }
     //results recorded
     move_to_dop current_move;
@@ -267,13 +268,13 @@ void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in
     if(is_white(board_in[y_in][x_in]))
     {
     	a_move white_moves_final[4];
-	int moves_list_length = move_list_generate(board_in,x_in,y_in,&white_moves_final,white_moves_pawn,4,debug);
+	    int moves_list_length = move_list_generate(board_in,x_in,y_in,&white_moves_final,white_moves_pawn,4,debug);
     	last_call(list_in,list_in_index,board_in,x_in, y_in,depth,white_to_moveq, white_moves_final, moves_list_length,debug);
     }
     else if(is_black(board_in[y_in][x_in]))
     {
     	a_move black_moves_final[4];
-	int moves_list_length = move_list_generate(board_in,x_in,y_in,&black_moves_final,black_moves_pawn,4,debug);
+    	int moves_list_length = move_list_generate(board_in,x_in,y_in,&black_moves_final,black_moves_pawn,4,debug);
     	last_call(list_in,list_in_index,board_in,x_in, y_in,depth,white_to_moveq, black_moves_final, moves_list_length,debug);
     }
 }
