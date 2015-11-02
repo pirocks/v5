@@ -1,0 +1,5 @@
+In file included from main.c:20:0:
+position_evaluatev6.h: In function ‘min_max’:
+position_evaluatev6.h:219:47: warning: unused parameter ‘white_to_moveq’ [-Wunused-parameter]
+ int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth)
+                                               ^
