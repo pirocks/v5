@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stdbool.h>
+#include "debug.h"
 //#include "valid.h"
 //#include "position_evaluatev5.h"
 extern board global_board;

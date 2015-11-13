@@ -1,3 +1,5 @@
+
+
 typedef int move_to_do[5];
 typedef int (*move_to_dop)[5];
 #include <assert.h>
@@ -6,9 +8,9 @@ typedef int (*move_to_dop)[5];
 #include <stdlib.h>
 #include <string.h>
 //#include "valid.h"
-#include "move.c"
+#include "move.h"
 #define special 20000000
-
+//#include "valid.h"
 
 typedef int evals_in[
 8*4 + // pawns

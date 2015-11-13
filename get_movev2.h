@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 extern a_move white_moves[4];
 extern a_move black_moves[4];
 extern a_move white_moves_final[4];

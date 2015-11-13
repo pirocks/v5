@@ -1,6 +1,9 @@
+#include <stdbool.h>
+#include <stdlib.h>
+
 typedef int board[8][8];
 typedef int (*boardp)[8][8];
-#include "debug.h"
+//#include "debug.h"
 #include "board_display.h"
 
 bool debug = false;
