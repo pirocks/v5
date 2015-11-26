@@ -2,13 +2,8 @@
 
 typedef int move_to_do[5];
 typedef int (*move_to_dop)[5];
-#include <assert.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-//#include "valid.h"
-#include "move.c"
+#include "state.h"
+#include "move.h"
 #define special 20000000
 
 
@@ -33,13 +28,6 @@ void displayboard_norefresh(board board_in);
 
 //moves list only covers the distances moved
 //that last comment was important
-
-void   call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void  call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void   call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void   call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 
 int white_count(board board_in, bool debug){
     ////assert(check_board(board_in));
@@ -126,12 +114,6 @@ boardp copy(board board_in)
     //assert(check_board(*board_out));
     return board_out;
 }
-
-int slow_max(evals_in list_in,int length, bool debug);
-int slow_min(evals_in list_in,int length, bool debug);
-int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth);
-void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 
 int position_evaluate(/*evals_inp list_in,int *list_in_index,*/board board_in, int depth, bool white_to_moveq, bool debug)
 {
@@ -293,7 +275,6 @@ void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, 
 }
 
 typedef int moves_list[][2];
-typedef int a_move[2];
 /*
 {change_x, change_y}
     int pawn_moves_white[4][2] = {

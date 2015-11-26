@@ -1,6 +1,4 @@
-//#include "valid.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "state.h"
 
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
@@ -11,8 +9,6 @@
 #define RESET   "\x1b[0m"
 
 //typedef int board[8][8];
-bool is_white(int piece_in);
-bool is_black(int piece_in);
 
 void printcolored_board(board board_in)
 {

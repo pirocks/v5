@@ -1,5 +1,5 @@
-#include "valid.h"
-#include <unistd.h>
+#include "state.h"
+
 
 void displayboard(board board_in);
 

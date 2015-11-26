@@ -1,4 +1,4 @@
-//typedef int board[8][8];
+#include "state.h"
 
 bool compare_int_lists(int list1[],int list2[],int size1, int size2)
 {

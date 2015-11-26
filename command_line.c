@@ -1,7 +1,4 @@
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <stdbool.h>
+#include "state.h"
 #include "debug.h"
 //#include "valid.h"
 //#include "position_evaluatev5.h"

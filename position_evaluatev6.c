@@ -1,15 +1,4 @@
-
-
-typedef int move_to_do[5];
-typedef int (*move_to_dop)[5];
-#include <assert.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-//#include "valid.h"
-#include "move.h"
-#define special 20000000
+#include "state.h"
 //#include "valid.h"
 
 typedef int evals_in[
@@ -33,13 +22,6 @@ void displayboard_norefresh(board board_in);
 
 //moves list only covers the distances moved
 //that last comment was important
-
-void call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 
 int white_count(board board_in, bool debug){
     ////assert(check_board(board_in));
@@ -126,12 +108,6 @@ boardp copy(board board_in)
     //assert(check_board(*board_out));
     return board_out;
 }
-
-int slow_max(evals_in list_in,int length, bool debug);
-int slow_min(evals_in list_in,int length, bool debug);
-int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth);
-void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 
 int position_evaluate(board board_in, int depth, bool white_to_moveq, bool debug)
 {
@@ -292,8 +268,6 @@ void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, 
 	}
 }
 
-typedef int moves_list[][2];
-typedef int a_move[2];
 /*
 {change_x, change_y}
     int pawn_moves_white[4][2] = {
@@ -309,21 +283,15 @@ typedef int a_move[2];
 
 void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, bool debug)
 {
-    ////assert(check_board(board_in));
-    //printf("call: %d",moves_list_length);
     boardp ptr;
     for(int index = 0; index < moves_list_length; index++)
     {
         if(moves[index][0] != 0 || moves[index][1] != 0)
         {
-            //displayboard(board_in);
             assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
-            //assert((*list_in)[*list_in_index] == 0);
             ptr  = copy(board_in);
-            ////assert((*(ptr + sizeof(board)))[0][0] == 10  && (*(ptr + sizeof(board)))[0][1] == 10 && (*(ptr + sizeof(board)))[0][2] == 10  && (*(ptr + sizeof(board)))[0][3] == 10  && (*(ptr + sizeof(board)))[0][4] == 10);
-            (*list_in)[*list_in_index] = (-1*position_evaluate(/*list_in,list_in_index,*/*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug));
+            (*list_in)[*list_in_index] = (-1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug));
             (*list_in_index)++;
-            ////assert((*(ptr + sizeof(board)))[0][0] == 10  && (*(ptr + sizeof(board)))[0][1] == 10 && (*(ptr + sizeof(board)))[0][2] == 10  && (*(ptr + sizeof(board)))[0][3] == 10  && (*(ptr + sizeof(board)))[0][4] == 10);
             free(ptr);
         }
         else{}

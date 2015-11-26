@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "state.h"
 #include "position_evaluatev5.h"
 //#include "move.c"
 //#include "valid.h"

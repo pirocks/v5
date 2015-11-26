@@ -1,46 +1,4 @@
-#include <stdbool.h>
-#include <stdlib.h>
-
-typedef int board[8][8];
-typedef int (*boardp)[8][8];
-//#include "debug.h"
-#include "board_display.h"
-
-bool debug = false;
-
-enum
-{
-  blank  ,
-  wking,
-  wqueen,
-  wrook,
-  wbishop,
-  wknight,
-  wpawn,
-  bking,
-  bqueen,
-  brook,
-  bbishop,
-  bknight,
-  bpawn
-};
-
-
-
-#define  bl 0
-#define  wk 1
-#define  wq 2
-#define  wr 3
-#define  wb 4
-#define  wn 5
-#define  wp 6
-#define  bk 7
-#define  bq 8
-#define  br 9
-#define  bb 10
-#define  bn 11
-#define  bp 12
-
+#include "state.h"
 
 board global_board_debug = {
     {blank,blank,blank,blank,blank,blank,blank,blank},

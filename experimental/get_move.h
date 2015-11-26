@@ -1,15 +1,4 @@
-//still  min max
-
-
-extern a_move white_moves[4];
-extern a_move black_moves[4];
-extern a_move white_moves_final[4];
-extern a_move black_moves_final[4];
-extern a_move knight_moves[8];
-extern a_move king_moves[8];
-
-
-
+#include "state.h"
 
 move_to_dop last_max(move_to_dop list_in[],int length, bool debug)
 {
@@ -81,15 +70,6 @@ typedef move_to_dop moves_in[
     1*(8+8+8+8)//queen
 ];
 typedef moves_in *moves_inp;
-
-void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 
 move_to_dop get_move(board board_in, int depth,bool white_to_moveq, bool debug)
 {
