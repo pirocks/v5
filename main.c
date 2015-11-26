@@ -354,9 +354,10 @@ void ask_for_piece_black()
     if (true)
     {
 	move_to_dop answer;
-	answer = get_move(global_board,4,false,false);
+	answer = get_move(global_board,3,false,false);
 	printf("\n got to here\n");
-	valid_move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
+	assert(valid(global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]));
+	move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
 	print_board(global_board);
 	displayboard(global_board);
 	printf("eval: %d x_in: %d y_in: %d x_end: %d y_end: %d\n",(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]);
@@ -415,7 +416,6 @@ void ask_for_move_black(int x_in, int y_in)
 	ask_for_piece_white();
 	return 0;
 }*/
-
 
 /*int main()
 {

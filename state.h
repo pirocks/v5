@@ -60,7 +60,7 @@ enum
 typedef int move_to_do[5];
 typedef int (*move_to_dop)[5];
 typedef int moves_list[][2];
-typedef int a_move[2];
+//typedef int a_move[2];
 typedef int evals_in[
 8*4 + // pawns
 2*(8+8-1) + //rooks
@@ -77,8 +77,7 @@ typedef int (*evals_inp)[
 1*(8) + //king
 1*(8+8+8+8)//queen
 ];
-typedef int moves_list[][2];
-typedef int a_move[2];
+//typedef int moves_list[][2];
 typedef move_to_dop moves_in[
     8*4 + // pawns
     2*(8+8-1) + //rooks

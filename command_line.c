@@ -28,10 +28,11 @@ void console_ask_for_piece_black(bool ai)
 {
 	if(ai)
 	{
-		move_to_dop answer = get_move(global_board,5,false,false);
-		move(&global_board,(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],false);
-        print_move(answer);
-		console_ask_for_piece_white(ai);
+	    move_to_dop answer = get_move(global_board,3,false,false);
+	    assert(valid(global_board,(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3]));
+	    move(&global_board,(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],false);
+	    print_move(answer);
+	    console_ask_for_piece_white(ai);
 	}
 	else
 	{

@@ -3,7 +3,7 @@
 #include "state.h"
 //#include "valid.h"
 
-typedef int evals_in[
+/*typedef int evals_in[
 8*4 + // pawns
 2*(8+8-1) + //rooks
 2*(8+8) + //bishops not sure this is correct
@@ -18,7 +18,7 @@ typedef int (*evals_inp)[
 2*(4*2) + //knights
 1*(8) + //king
 1*(8+8+8+8)//queen
-];
+];*/
 
 void displayboard_norefresh(board board_in);
 

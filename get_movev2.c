@@ -65,7 +65,7 @@ move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, 
 	    return last_min(list_in,length,debug);*/
 }
 
-typedef move_to_dop moves_in[
+/*typedef move_to_dop moves_in[
     8*4 + // pawns
     2*(8+8-1) + //rooks
     2*(8+8) + //bishops not sure this is correct
@@ -73,7 +73,7 @@ typedef move_to_dop moves_in[
     1*(8) + //king
     1*(8+8+8+8)//queen
 ];
-typedef moves_in *moves_inp;
+typedef moves_in *moves_inp;*/
 
 move_to_dop get_move(board board_in, int depth,bool white_to_moveq, bool debug)
 {
