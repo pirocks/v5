@@ -34,7 +34,7 @@ bool same_boardq(board board1, board board2)
     return compare_int_lists2d(board1,board2,8,8,8,8);
 }
 
-void print_board(board board_in);
+
 
 bool check_board(board board_in)
 {

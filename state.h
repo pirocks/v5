@@ -93,7 +93,7 @@ typedef moves_in *moves_inp;
 void displayboard_norefresh(board board_in);
 
 boardp move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castlingq);
-
+boardp copy(board board_in);
 void   call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
@@ -107,7 +107,7 @@ int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int dep
 void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 
-
+void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, bool debug);
 void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
@@ -126,7 +126,7 @@ void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_
 void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-
+void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug);
 
 
 void call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
@@ -135,13 +135,38 @@ void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, i
 void call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 void call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
 void call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-
+int position_evaluate(board board_in, int depth, bool white_to_moveq, bool debug);
 int slow_max(evals_in list_in,int length, bool debug);
 int slow_min(evals_in list_in,int length, bool debug);
 int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth);
 void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
 void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-
+move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth);
+int move_list_generate(board board_in, int x_in, int y_in,a_move (*final_moves)[], moves_list moves,int length,bool debug);
 
 bool is_white(int piece_in);
 bool is_black(int piece_in);
+
+void console_ask_for_piece_white(bool ai);
+void console_ask_for_piece_black(bool ai);
+void console_ask_for_move_white(bool ai, int x_in, int y_in);
+void console_ask_for_move_black(bool ai, int x_in, int y_in);
+
+bool valid(board board_in, int x_in, int y_in, int x_end, int y_end);
+bool black(board board_in, int x_in, int y_in, int x_end, int y_end);
+bool white(board board_in, int x_in, int y_in, int x_end, int y_end);
+
+bool valid_move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castlingq);
+boardp move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castlingq);
+
+
+move_to_dop get_move(board board_in, int depth,bool white_to_moveq, bool debug);
+
+void print_move(move_to_dop answer);
+void min_max_display(int in[],int length,bool debug);
+
+void print_board(board board_in);
+
+void printcolored_board(board board_in);
+
+extern board global_board;

@@ -113,6 +113,7 @@ boardp copy(board board_in)
 
 int position_evaluate(board board_in, int depth, bool white_to_moveq, bool debug)
 {
+    (void)white_to_moveq;
     ////assert(check_board(board_in));
     if(depth == 0)
     {
@@ -199,6 +200,7 @@ int min(evals_in list_in,int length, bool debug)
 int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth)
 {
     (void) depth;
+    (void) white_to_moveq;
     return max(list_in,length,debug);
     /*if(white_to_moveq)
     	return max(list_in,length, debug);

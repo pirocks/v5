@@ -57,6 +57,7 @@ move_to_dop last_min(move_to_dop list_in[],int length, bool debug)
 move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth)
 {
     (void) depth;
+    (void) white_to_moveq;
     return last_max(list_in,length,debug);
     /*if(white_to_moveq)
 	    return last_max(list_in,length,debug);
@@ -193,6 +194,7 @@ typedef moves_in *moves_inp;*/
 
 void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, bool debug)
 {
+    (void)white_to_moveq;
     ////assert(check_board(board_in));
     printf("\nlast call %d\n",moves_list_length);
     boardp ptr;

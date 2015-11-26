@@ -3,13 +3,6 @@
 #include "state.h"
 //#include "valid.h"
 //#include "position_evaluatev5.h"
-extern board global_board;
-
-
-void console_ask_for_piece_white(bool ai);
-void console_ask_for_piece_black(bool ai);
-void console_ask_for_move_white(bool ai, int x_in, int y_in);
-void console_ask_for_move_black(bool ai, int x_in, int y_in);
 
 void console_ask_for_piece_white(bool ai)
 {
