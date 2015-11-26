@@ -1,3 +1,5 @@
+#ifndef position_evaluatev6D
+#define position_evaluatev6D
 #include "state.h"
 //#include "valid.h"
 
@@ -523,3 +525,4 @@ int slow_min(evals_in list_in,int length, bool debug)
     }
     return min;
 }
+#endif

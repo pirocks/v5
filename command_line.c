@@ -1,5 +1,6 @@
+#ifndef command_lineD
+#define command_lineD
 #include "state.h"
-#include "debug.h"
 //#include "valid.h"
 //#include "position_evaluatev5.h"
 extern board global_board;
@@ -113,3 +114,4 @@ void console_ask_for_move_black(bool ai, int x_in, int y_in)
         console_ask_for_piece_black(ai);
 	}
 }
+#endif

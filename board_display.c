@@ -1,3 +1,5 @@
+#ifndef board_displayD
+#define board_displayD
 #include "state.h"
 
 #define RED     "\x1b[31m"
@@ -117,3 +119,4 @@ void printcolored_board(board board_in)
 	}
 	printf("\n");
 }
+#endif

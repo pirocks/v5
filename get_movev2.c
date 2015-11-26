@@ -1,3 +1,5 @@
+#ifndef get_movev2D
+#define get_movev2D
 #include "state.h"
 
 move_to_dop last_max(move_to_dop list_in[],int length, bool debug)
@@ -359,3 +361,4 @@ void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in
     }
     last_call(list_in,list_in_index,board_in,x_in, y_in,depth,white_to_moveq, rook_moves, moves_list_length,debug);
 }
+#endif

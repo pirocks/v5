@@ -1,5 +1,6 @@
+#ifndef moveD
+#define moveD
 #include "state.h"
-
 
 void displayboard(board board_in);
 
@@ -33,3 +34,4 @@ bool valid_move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool c
 		return false;
 }
 
+#endif
