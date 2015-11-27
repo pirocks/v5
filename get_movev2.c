@@ -2,7 +2,7 @@
 #define get_movev2D
 #include "state.h"
 
-move_to_dop last_max(move_to_dop list_in[],int length, bool debug)
+move_to_dop last_max(move_to_dop list_in[],int length, int debug)
 {
     if(debug)printf("debug: max: length: %d",length);
     move_to_dop special_list = malloc(sizeof(move_to_do));
@@ -29,7 +29,7 @@ move_to_dop last_max(move_to_dop list_in[],int length, bool debug)
     return current;
 }
 
-move_to_dop last_min(move_to_dop list_in[],int length, bool debug)
+move_to_dop last_min(move_to_dop list_in[],int length, int debug)
 {
     if(debug)printf("debug: max: length: %d",length);
     move_to_dop special_list = malloc(sizeof(move_to_do));
@@ -54,7 +54,7 @@ move_to_dop last_min(move_to_dop list_in[],int length, bool debug)
     return current;
 }
 
-move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth)
+move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, int debug,int depth)
 {
     (void) depth;
     (void) white_to_moveq;
@@ -75,7 +75,7 @@ move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, 
 ];
 typedef moves_in *moves_inp;*/
 
-move_to_dop get_move(board board_in, int depth,bool white_to_moveq, bool debug)
+move_to_dop get_move(board board_in, int depth,bool white_to_moveq, int debug)
 {
     ////assert(check_board(board_in));
     moves_in list;
@@ -88,7 +88,7 @@ move_to_dop get_move(board board_in, int depth,bool white_to_moveq, bool debug)
     return last_min_max(list,list_index,white_to_moveq,debug,depth);
 }
 
-void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug)
+void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug)
 {
     ////assert(check_board(board_in));
     //assert(white_to_moveq);
@@ -125,7 +125,7 @@ void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int de
     //return(min_max(value_list,current_index,white_to_moveq,debug));
 }
 
-void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug)
+void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug)
 {
     ////assert(check_board(board_in));
     //assert(!white_to_moveq);
@@ -192,7 +192,7 @@ move_arrayp move_arrays_tofree[8*4 + /*pawns*/ 2*(8+8-1) + /*rooks*/ 2*(8+8) + /
 ];
 typedef moves_in *moves_inp;*/
 
-void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, bool debug)
+void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, int debug)
 {
     (void)white_to_moveq;
     ////assert(check_board(board_in));
@@ -207,19 +207,9 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
     for(int index = 0; index < moves_list_length; index++)
     {
         assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
-        ////assert(check_board(board_in));
         ptr  = copy(board_in);
-        ////assert(check_board(board_in));
-        //assert(check_board(*ptr));
-        list_in_foreval[index] = -1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,false);
-        //displayboard_norefresh(*ptr);
-        //assert(check_board(*ptr));
+        list_in_foreval[index] = -1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,1);
         free(ptr);
-        /*if((list_in_foreval)[index] == special)
-        {
-            list_in_foreval[index] = -1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug);
-            assert(false);
-        }*/
     }
     //results recorded
     move_to_dop current_move;
@@ -249,7 +239,7 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
     return count;
 }*/
 
-void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug)
+void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
     ////assert(check_board(board_in));
     if(is_white(board_in[y_in][x_in]))
@@ -266,7 +256,7 @@ void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in
     }
 }
 
-void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug)
+void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug)
 {
     ////assert(check_board(board_in));
     printf("knight\n");
@@ -276,7 +266,7 @@ void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_
     last_call(list_in, list_in_index,board_in,x_in, y_in,depth,white_to_moveq, final_knight_moves, moves_list_length,false);
 }
 
-void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug)
+void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
     ////assert(check_board(board_in));
     printf("bishop");
@@ -309,7 +299,7 @@ void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_
     last_call(list_in,list_in_index,board_in,x_in, y_in,depth,white_to_moveq, bishop_moves, moves_list_length,debug);
 }
 
-void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug)
+void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
     ////assert(check_board(board_in));
     printf("queen");
@@ -317,7 +307,7 @@ void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_i
     last_call_bishop(list_in,list_in_index,board_in,x_in,y_in,depth,white_to_moveq,debug);
 }
 
-void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug)
+void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
     ////assert(check_board(board_in));
     printf("king");
@@ -326,7 +316,7 @@ void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in
     last_call(list_in,list_in_index,board_in,x_in, y_in,depth,white_to_moveq, final_king_moves, moves_list_length,debug);
 }
 
-void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug)
+void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
     ////assert(check_board(board_in));
     printf("rook");

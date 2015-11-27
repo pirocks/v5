@@ -28,6 +28,6 @@ debug.o: debug.c
 dot_record.o: dot_record.c
 	$(cc) $(ccflags) -c dot_record.c -o dot_record.o $(warnings) $(asanflags)
 clean:
-	rm chess *.o -f
+	rm chess *.o out.dot -f
 check:
 	#not implemented

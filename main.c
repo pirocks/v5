@@ -12,7 +12,7 @@
 #include "SDL/SDL_thread.h"
 #include <SDL/SDL.h>
 #include <SDL_image.h>
-bool debug_warp = 0;
+int debug_warp = 0;
 
 SDL_Surface *screen;
 SDL_Surface *boardimage;

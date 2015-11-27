@@ -33,6 +33,8 @@ extern a_move king_moves[8];
 extern a_move white_moves_pawn[4];
 extern a_move black_moves_pawn[4];
 
+extern int board_c;
+
 enum
 {
   blank  ,
@@ -100,55 +102,57 @@ void displayboard_norefresh(board board_in);
 
 boardp move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castlingq);
 boardp copy(board board_in);
-void   call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void  call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void   call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void   call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
+void   call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void  call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void   call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void   call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
 
-int slow_max(evals_in list_in,int length, bool debug);
-int slow_min(evals_in list_in,int length, bool debug);
-int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth);
-void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
+int slow_max(evals_in list_in,int length, int debug);
+int slow_min(evals_in list_in,int length, int debug);
+int min_max(evals_in list_in,int length, bool white_to_moveq, int debug,int depth);
+void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
 
-void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, bool debug);
-void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-
-
-void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   bool debug);
+int white_count(board board_in, int debug);
+int black_count(board board_in, int debug);
+void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, int debug);
+void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
 
 
-void call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-void call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,bool debug);
-int position_evaluate(board board_in, int depth, bool white_to_moveq, bool debug);
-int slow_max(evals_in list_in,int length, bool debug);
-int slow_min(evals_in list_in,int length, bool debug);
-int min_max(evals_in list_in,int length, bool white_to_moveq, bool debug,int depth);
-void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, bool debug);
-move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, bool debug,int depth);
-int move_list_generate(board board_in, int x_in, int y_in,a_move (*final_moves)[], moves_list moves,int length,bool debug);
+void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug);
+
+
+void call_pawn(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_knight(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_bishop(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_queen(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_king(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+void call_rook(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug);
+int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug);
+int slow_max(evals_in list_in,int length, int debug);
+int slow_min(evals_in list_in,int length, int debug);
+int min_max(evals_in list_in,int length, bool white_to_moveq, int debug,int depth);
+void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+void call_black(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug);
+move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, int debug,int depth);
+int move_list_generate(board board_in, int x_in, int y_in,a_move (*final_moves)[], moves_list moves,int length,int debug);
 
 bool is_white(int piece_in);
 bool is_black(int piece_in);
@@ -166,17 +170,17 @@ bool valid_move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool c
 boardp move(boardp board_in,int x_in, int y_in, int x_end, int y_end, bool castlingq);
 
 
-move_to_dop get_move(board board_in, int depth,bool white_to_moveq, bool debug);
+move_to_dop get_move(board board_in, int depth,bool white_to_moveq, int debug);
 
 void print_move(move_to_dop answer);
-void min_max_display(int in[],int length,bool debug);
+void min_max_display(int in[],int length,int debug);
 
 void print_board(board board_in);
 
 void printcolored_board(board board_in);
 
-void label_node(board board_in, int value_in,boardp node);
-void link_nodes(boardp node1, boardp node2);
+int label_node(board board_in, int value_in);
+void link_nodes(int,int);
 void close_dot();
 void init_dot();
 
