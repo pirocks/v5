@@ -82,16 +82,11 @@ void board_to_string(board board_in, FILE * file_in)
 					break;
 			}
 			if(is_white(piece))
-				fprintf(file_in,"%s  ",color_string);
+				fprintf(file_in,"%s",color_string);
 			else if(is_black(piece))
-				fprintf(file_in,"%s  ",color_string);
+				fprintf(file_in,"%s",color_string);
 			else
-				fprintf(file_in,"%s  ",color_string);
-		}
-		fprintf(file_in,"|\n|");
-		for(int index2 = 0; index2 < 8; index2++)
-		{
-			fprintf(file_in,"    ");
+				fprintf(file_in,"%s",color_string);
 		}
 		fprintf(file_in,"|\n");
 	}
