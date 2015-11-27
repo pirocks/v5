@@ -106,7 +106,7 @@ int label_node(board board_in, int value_in)
 	board_c++;
 	fprintf(fp,"a%d [label=\"",board_c);
 	board_to_string(board_in,fp);
-	fprintf(fp,"\n value: %d\n node:a%d\"];\n",value_in,board_c);
+	fprintf(fp,"\n value: %d\n node:a%d\"] [fontname = \"Courier\"];\n",value_in,board_c);
 	return board_c;
 }
 
