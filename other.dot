@@ -1,0 +1,4 @@
+digraph mygraph
+{
+	a [label = "labelm\nothers"] [font = "Courier"];
+}
