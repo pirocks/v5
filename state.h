@@ -6,6 +6,13 @@
 #include <unistd.h>
 #include <time.h>
 #define special 20000000
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+#define RESET   "\x1b[0m"
 typedef int a_move[2];
 typedef int board[8][8];
 typedef int (*boardp)[8][8];
@@ -167,5 +174,11 @@ void min_max_display(int in[],int length,bool debug);
 void print_board(board board_in);
 
 void printcolored_board(board board_in);
+
+void label_node(board board_in, int value_in,boardp node);
+void link_nodes(boardp node1, boardp node2);
+void close_dot();
+void init_dot();
+
 
 extern board global_board;

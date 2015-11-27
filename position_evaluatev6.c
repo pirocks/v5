@@ -120,6 +120,7 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, bool debug
 	////assert(check_board(board_in));
 	//if(white_count(board_in,debug) - black_count(board_in,debug)==3)
 	    //print_board(board_in);
+	label_node(board_in,white_count(board_in,debug) - black_count(board_in,debug),(boardp)&(board_in));
 	return (white_count(board_in,debug) - black_count(board_in,debug));
     }
     else
@@ -295,6 +296,8 @@ void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in
             assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
             ptr  = copy(board_in);
             (*list_in)[*list_in_index] = (-1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug));
+	    label_node(board_in,(*list_in)[*list_in_index],(boardp)&board_in);
+	    link_nodes(ptr,(boardp)&board_in);
             (*list_in_index)++;
             free(ptr);
         }

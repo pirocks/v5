@@ -28,7 +28,9 @@ void console_ask_for_piece_black(bool ai)
 {
 	if(ai)
 	{
+	    init_dot();
 	    move_to_dop answer = get_move(global_board,3,false,false);
+	    close_dot();
 	    assert(valid(global_board,(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3]));
 	    move(&global_board,(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],false);
 	    print_move(answer);
