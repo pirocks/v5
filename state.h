@@ -65,7 +65,7 @@ enum
 #define  bb 10
 #define  bn 11
 #define  bp 12
-
+//this is a bit of mess
 typedef int move_to_do[5];
 typedef int (*move_to_dop)[5];
 typedef int moves_list[][2];
@@ -96,6 +96,15 @@ typedef move_to_dop moves_in[
     1*(8+8+8+8)//queen
 ];
 typedef moves_in *moves_inp;
+
+typedef struct 
+{
+	long int label_index;
+	long int value_index;
+} node_out;
+
+int create_node_incomplete(node_out *out);
+void label_node(node_out *out,board board_in,int value_in);
 
 
 void displayboard_norefresh(board board_in);
@@ -178,8 +187,7 @@ void min_max_display(int in[],int length,int debug);
 void print_board(board board_in);
 
 void printcolored_board(board board_in);
-
-int label_node(board board_in, int value_in);
+int create_node(board board_in, int value_in);
 void link_nodes(int,int);
 void close_dot();
 void init_dot();

@@ -117,7 +117,7 @@ boardp copy(board board_in)
 
 int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
 {
-    int val = label_node(board_in,white_count(board_in,debug)-black_count(board_in,debug));
+    int val = create_node_incomplete_final();
     link_nodes(debug,val);
     (void)white_to_moveq;
     ////assert(check_board(board_in));
@@ -125,12 +125,12 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
     {
 	////assert(check_board(board_in));
 	//if(white_count(board_in,debug) - black_count(board_in,debug)==3)
-	    //print_board(board_in);
+	//print_board(board_in);
+	create_node_id(board_in,(white_count(board_in,debug) - black_count(board_in,debug)),val);
 	return (white_count(board_in,debug) - black_count(board_in,debug));
     }
     else
     {
-	    ////assert(check_board(board_in));
     	evals_in list;
 	    memset(&list,0,sizeof(evals_in));
     	int list_index = 0;
@@ -140,7 +140,9 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
     	    call_black(&list,&list_index,board_in, depth, white_to_moveq, board_c);
     	else
     	    assert(false);
-	return min_max(list,list_index,white_to_moveq,debug,depth);
+	int other_out = min_max(list,list_index,white_to_moveq,debug,depth);
+	create_node_id(board_in,other_out,val);
+	return other_out;
     }
 }
 
