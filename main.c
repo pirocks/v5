@@ -360,7 +360,7 @@ void ask_for_piece_black()
 	move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
 	print_board(global_board);
 	displayboard(global_board);
-	printf("eval: %d x_in: %d y_in: %d x_end: %d y_end: %d\n",(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]);
+	printf("\neval: %d x_in: %d y_in: %d x_end: %d y_end: %d\n",(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]);
 	ask_for_piece_white();
     }
     else

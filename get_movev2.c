@@ -13,25 +13,17 @@ move_to_dop last_max(move_to_dop list_in[],int length, int debug)
     move_to_dop current = (list_in)[0];
     for(int index = 0; index < length; index++)
     {
-	//move_to_dop answer = current;
-    	//printf("eval: %d x_in: %d y_in: %d x_end: %d y_end: %d\n",(*answer)[0],(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]);
     	if((*current)[0] == special)
-        {
             current = list_in[index];
-            //assert(false);
-        }
         else if((*(list_in[index]))[0] > (*current)[0] && (*(list_in[index]))[0] != special)
-        {
-            //free(current);
             current = list_in[index];
-        }
     }
     return current;
 }
 
 move_to_dop last_min(move_to_dop list_in[],int length, int debug)
 {
-    if(debug)printf("debug: max: length: %d",length);
+    if(debug)printf("debug: min: length: %d",length);
     move_to_dop special_list = malloc(sizeof(move_to_do));
     move_to_do special_move = {special,-1,-1,-1,-1};
     memcpy(special_list,&special_move,sizeof(move_to_do));//sets up special list for return
@@ -41,15 +33,9 @@ move_to_dop last_min(move_to_dop list_in[],int length, int debug)
     for(int index = 0; index < length; index++)
     {
     	if((*current)[0] == special)
-    	{
     	    current = list_in[index];
-	        //assert(false);
-    	}
     	else if((*(list_in[index]))[0] < (*current)[0] && (*(list_in[index]))[0] != special)
-    	{
-            //free(current);
             current = list_in[index];
-	    }
     }
     return current;
 }
@@ -57,12 +43,10 @@ move_to_dop last_min(move_to_dop list_in[],int length, int debug)
 move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, int debug,int depth)
 {
     (void) depth;
-    (void) white_to_moveq;
-    return last_max(list_in,length,debug);
-    /*if(white_to_moveq)
-	    return last_max(list_in,length,debug);
+    if(!white_to_moveq)
+	return last_max(list_in,length,debug);
     else
-	    return last_min(list_in,length,debug);*/
+	return last_min(list_in,length,debug);
 }
 
 /*typedef move_to_dop moves_in[
@@ -82,7 +66,7 @@ move_to_dop get_move(board board_in, int depth,bool white_to_moveq, int debug)
     memset(&list,0,sizeof(moves_in));
     int list_index = 0;
     if(white_to_moveq)
-	    last_call_white(&list,&list_index,board_in, depth, white_to_moveq, debug);
+	last_call_white(&list,&list_index,board_in, depth, white_to_moveq, debug);
     else if(!white_to_moveq)
     	last_call_black(&list,&list_index,board_in, depth, white_to_moveq, debug);
     return last_min_max(list,list_index,white_to_moveq,debug,depth);
@@ -208,7 +192,7 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
     {
         assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
         ptr  = copy(board_in);
-        list_in_foreval[index] = -1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,1);
+        list_in_foreval[index] = position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,1);
         free(ptr);
     }
     //results recorded

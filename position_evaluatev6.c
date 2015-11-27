@@ -29,6 +29,7 @@ void displayboard_norefresh(board board_in);
 
 int white_count(board board_in, int debug){
     ////assert(check_board(board_in));
+    (void)debug;
     int count = 0;
     int item;
     for (int index = 0; index < 8; index++){
@@ -58,12 +59,13 @@ int white_count(board board_in, int debug){
             }
         }
     }
-    if(debug)printf("debug: white_count: return: %d\n",count);
+    //if(debug)printf("debug: white_count: return: %d\n",count);
     return 1*count;
 }
 
 int black_count(board board_in, int debug){
     ////assert(check_board(board_in));
+    (void)debug;
     int count = 0;
     int item;
     for (int index = 0; index < 8; index++){
@@ -93,7 +95,7 @@ int black_count(board board_in, int debug){
             }
         }
     }
-    if(debug)printf("debug: black_count: return: %d\n",count);
+    //if(debug)printf("debug: black_count: return: %d\n",count);
     return 1*count;
 }
 
@@ -144,7 +146,7 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
 
 int max(evals_in list_in,int length, int debug)
 {
-    if(debug){printf("debug: max: length: %d\n",length); for(int i = 0; i < length; i++)printf("%d,",list_in[i]);}
+//    if(debug){printf("debug: max: length: %d\n",length); for(int i = 0; i < length; i++)printf("%d,",list_in[i]);}
     if (length == 0)
 	return special;
     int current = list_in[0];
@@ -174,7 +176,7 @@ int max(evals_in list_in,int length, int debug)
 
 int min(evals_in list_in,int length, int debug)
 {
-    if(debug)printf("debug: min: length: %d",length);
+    //if(debug)printf("debug: min: length: %d",length);
     if (length == 0)
 	return special;
     int current = list_in[0];
@@ -189,9 +191,9 @@ int min(evals_in list_in,int length, int debug)
     	    current = list_in[index];
     	}
     }
-    if(debug)
-    { min_max_display(list_in,length,debug);assert(false);}
-    else if(current != slow_min(list_in,length, debug))
+    //if(debug)
+    //{ min_max_display(list_in,length,debug);assert(false);}
+    if(current != slow_min(list_in,length, debug))
     {
         printf("slow min: %d\n",slow_min(list_in,length, debug));
         printf("current:%d\n",current);
@@ -205,11 +207,11 @@ int min_max(evals_in list_in,int length, bool white_to_moveq, int debug,int dept
 {
     (void) depth;
     (void) white_to_moveq;
-    return max(list_in,length,debug);
-    /*if(white_to_moveq)
+    //return max(list_in,length,debug);
+    if(!white_to_moveq)
     	return max(list_in,length, debug);
     else
-    	return min(list_in,length, debug);*/
+    	return min(list_in,length, debug);
 }
 
 void call_white(evals_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug)
@@ -298,7 +300,7 @@ void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in
         {
             assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
             ptr  = copy(board_in);
-            (*list_in)[*list_in_index] = (-1*position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug));
+            (*list_in)[*list_in_index] = (position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,debug));
             (*list_in_index)++;
             free(ptr);
         }
@@ -334,10 +336,11 @@ a_move black_moves_pawn[4] = {
 int move_list_generate(board board_in, int x_in, int y_in,a_move (*final_moves)[], moves_list moves,int length,int debug)
 {
     int count = 0;
+    (void)debug;
     for(int index = 0; index < length; index++)
     {
-	if(debug)
-	    printf("move: x_in,y_in: %d,%d x,y: %d,%d, valid:%d\n",x_in,y_in,moves[index][0],moves[index][1],valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
+	//if(debug)
+	  //printf("move: x_in,y_in: %d,%d x,y: %d,%d, valid:%d\n",x_in,y_in,moves[index][0],moves[index][1],valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
 	if(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]))
 	{
 	    (*final_moves)[count][0] = moves[index][0];

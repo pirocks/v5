@@ -9,7 +9,7 @@ char current_node[10];
 
 void init_dot()
 {
-	fp = fopen("out.dot", "a");
+	fp = fopen("out.dot", "w");
 	fputs("digraph mygraph {",fp);
 }
 
