@@ -101,11 +101,11 @@ int create_node(board board_in, int value_in)
 	fprintf(fp,"\n value: %d\n node:a%d\"] [fontname = \"Courier\"];\n",value_in,board_c);
 	return board_c;
 }
-int create_node_id(board board_in, int value_in,int id)
+int create_node_id(board board_in, int value_in,int id,const char * extra)
 {
 	fprintf(fp,"a%d [label=\"",id);
 	board_to_string(board_in,fp);
-	fprintf(fp,"\n value: %d\n node:a%d\"] [fontname = \"Courier\"];\n",value_in,id);
+	fprintf(fp,"\n value: %d\n node:a%d extra details: %s\"] [fontname = \"Courier\"];\n",value_in,id, extra);
 	return id;
 }
 
