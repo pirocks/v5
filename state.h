@@ -105,8 +105,8 @@ typedef struct
 
 int create_node_incomplete(node_out *out);
 void label_node(node_out *out,board board_in,int value_in);
-int create_node_incomplete_final(void );
-int create_node_id(board,int,int,const char *);
+int create_node_incomplete_final(int depth );
+int create_node_id(board,int,int,const char *,int);
 
 void displayboard_norefresh(board board_in);
 
@@ -189,7 +189,7 @@ void print_board(board board_in);
 
 void printcolored_board(board board_in);
 int create_node(board board_in, int value_in);
-void link_nodes(int,int);
+void link_nodes(int,int,int);
 void close_dot();
 void init_dot();
 

@@ -101,11 +101,14 @@ int create_node(board board_in, int value_in)
 	fprintf(fp,"\n value: %d\n node:a%d\"] [fontname = \"Courier\"];\n",value_in,board_c);
 	return board_c;
 }
-int create_node_id(board board_in, int value_in,int id,const char * extra)
+int create_node_id(board board_in, int value_in,int id,const char * extra,int depth)
 {
-	fprintf(fp,"a%d [label=\"",id);
-	board_to_string(board_in,fp);
-	fprintf(fp,"\n value: %d\n node:a%d extra details: %s\"] [fontname = \"Courier\"];\n",value_in,id, extra);
+	if(depth > 0)
+	{
+		fprintf(fp,"a%d [label=\"",id);
+		board_to_string(board_in,fp);
+		fprintf(fp,"\n value: %d\n node:a%d extra details: %s\"] [fontname = \"Courier\"];\n",value_in,id, extra);
+	}
 	return id;
 }
 
@@ -117,24 +120,18 @@ void label_node(node_out *out,board board_in,int value_in)
 	insert_value(fp,"out.dot",value_index,value_in);
 }
 
-int create_node_incomplete(node_out *out)
+int create_node_incomplete_final(int depth)
 {
 	board_c++;
-	fprintf(fp,"a%d [label=\"",board_c);
-	(*out).label_index = ftell(fp);
-	fprintf(fp,"\n value: ");
-	(*out).value_index = ftell(fp);
-	fprintf(fp,"\n node:a%d\"] [fontname = \"Courier\"];\n",board_c);
+	if(depth > 0)
+	{
+		fprintf(fp,"a%d;",board_c);
+	}
 	return board_c;
 }
-int create_node_incomplete_final(void)
+void link_nodes(int node1_c,int node2_c,int depth)
 {
-	board_c++;
-	fprintf(fp,"a%d;",board_c);
-	return board_c;
-}
-void link_nodes(int node1_c,int node2_c)
-{
+	if(depth > 0)
 	fprintf(fp,"a%d -> a%d;\n",node1_c,node2_c);
 }
 

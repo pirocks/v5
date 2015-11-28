@@ -343,5 +343,6 @@ bool valid(board board_in, int x_in, int y_in, int x_end, int y_end)
 		return(white(board_in, x_in, y_in, x_end, y_end));
 	else if (is_black(piece))
 		return(black(board_in, x_in, y_in, x_end, y_end));
+	print_board(board_in);
 	assert(false);
 }

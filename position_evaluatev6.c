@@ -117,8 +117,8 @@ boardp copy(board board_in)
 
 int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
 {
-    int val = create_node_incomplete_final();
-    link_nodes(debug,val);
+    int val = create_node_incomplete_final(depth);
+    link_nodes(debug,val,depth);
     (void)white_to_moveq;
     ////assert(check_board(board_in));
     if(depth == 0)
@@ -128,7 +128,8 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
 	//print_board(board_in);
 	char * extra = malloc(sizeof(char[100]));
 	sprintf(extra,"\nno min/max was taken\n just returned stuff\n white_to_moveq: %d\n",white_to_moveq);
-	create_node_id(board_in,(white_count(board_in,debug) - black_count(board_in,debug)),val,extra);
+	create_node_id(board_in,(white_count(board_in,debug) - black_count(board_in,debug)),val,extra,depth);
+	free(extra);
 	return (white_count(board_in,debug) - black_count(board_in,debug));
     }
     else
@@ -145,7 +146,8 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
 	int other_out = min_max(list,list_index,white_to_moveq,debug,depth);
 	char * extra = malloc(sizeof(char[100]));
 	sprintf(extra,"\nmax(0/1): %d white_to_moveq: %d\n",white_to_moveq,white_to_moveq);
-	create_node_id(board_in,other_out,val,extra);
+	create_node_id(board_in,other_out,val,extra,depth);
+	free(extra);
 	return other_out;
     }
 }

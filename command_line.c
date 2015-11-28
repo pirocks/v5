@@ -30,7 +30,7 @@ void console_ask_for_piece_black(bool ai)
 	{
 	    init_dot();
 	    int val = create_node(global_board,white_count(global_board,0)-black_count(global_board,0));
-	    move_to_dop answer = get_move(global_board,3,false,val);
+	    move_to_dop answer = get_move(global_board,4,false,val);
 	    close_dot();
 	    assert(valid(global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]));
 	    move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
