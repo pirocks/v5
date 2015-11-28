@@ -43,7 +43,7 @@ move_to_dop last_min(move_to_dop list_in[],int length, int debug)
 move_to_dop last_min_max(move_to_dop list_in[],int length, bool white_to_moveq, int debug,int depth)
 {
     (void) depth;
-    if(!white_to_moveq)
+    if(white_to_moveq)
 	return last_max(list_in,length,debug);
     else
 	return last_min(list_in,length,debug);

@@ -214,7 +214,7 @@ int min_max(evals_in list_in,int length, bool white_to_moveq, int debug,int dept
     (void) depth;
     (void) white_to_moveq;
     //return max(list_in,length,debug);
-    if(!white_to_moveq)
+    if(white_to_moveq)
     	return max(list_in,length, debug);
     else
     	return min(list_in,length, debug);
