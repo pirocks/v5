@@ -144,7 +144,7 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
     	    assert(false);
 	int other_out = min_max(list,list_index,white_to_moveq,debug,depth);
 	char * extra = malloc(sizeof(char[100]));
-	sprintf(extra,"\nmax(0/1): %d white_to_moveq: %d\n",!white_to_moveq,white_to_moveq);
+	sprintf(extra,"\nmax(0/1): %d white_to_moveq: %d\n",white_to_moveq,white_to_moveq);
 	create_node_id(board_in,other_out,val,extra);
 	return other_out;
     }
