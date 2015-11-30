@@ -1,11 +1,13 @@
 cc=gcc-4.9
-ccflags=-g -O2 -std=c99 -pthread
+ccflags=-pg -O2 -std=c99 -pthread
 sdlflags=`sdl-config --cflags` `sdl-config --libs` -lSDL_image -lSDL -lX11
 #asanflags=-fsanitize=address -fno-omit-frame-pointer -lasan
 asanflags=
 warnings= -Wall -pedantic -Wextra
-all: main.o position_evaluate text_only_utils debug.o dot_record.o
-	$(cc) board_display.o command_line.o get_movev2.o position_evaluatev6.o valid.o move.o debug.o main.o dot_record.o -o chess $(sdlflags) -lasan
+#ldflags=-lasan
+ldflags=
+all: main.o position_evaluate text_only_utils debug.o
+	$(cc) board_display.o command_line.o get_movev2.o position_evaluatev6.o valid.o move.o debug.o main.o -o chess $(sdlflags) $(ldflags)
 position_evaluate: get_movev2.o position_evaluatev6.o valid.o move.o
 text_only_utils: board_display.o command_line.o
 #debug: debug.o dot_record.o
