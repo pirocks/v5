@@ -36,6 +36,7 @@ void console_ask_for_piece_black(bool ai)
 	    move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
 	    printf("\n");
 	    print_move(answer);
+	    exit(1);
 	    console_ask_for_piece_white(ai);
 	}
 	else
