@@ -1,8 +1,8 @@
 #ifndef position_evaluatev6D
 #define position_evaluatev6D
 #include "state.h"
-//#include "valid.h"
 
+//		      0     1     2      3     4       5       6     7     8      9     10      11      12
 //                    blank,wking,wqueen,wrook,wbishop,wknight,wpawn,bking,bqueen,brook,bbishop,bknight,bpawn
 int piece_values[] = {0    ,100  ,9     ,5    ,3      ,3       ,1   ,-100 ,-9    ,-5   ,-3     ,-3     ,-1};
 
@@ -28,10 +28,7 @@ typedef int (*evals_inp)[
 int carry_determine(board board_in, int x_end, int y_end, int carry,bool white_to_moveq)
 {
     int piece_being_taken = board_in[y_end][x_end];
-    if(white_to_moveq)
-	return (carry - piece_values[piece_being_taken]);
-    else
-	return (carry + piece_values[piece_being_taken]);
+    return (carry - 10000*piece_values[piece_being_taken]);
 }
 
 void displayboard_norefresh(board board_in);
@@ -39,7 +36,8 @@ void displayboard_norefresh(board board_in);
 //moves list only covers the distances moved
 //that last comment was important
 
-int white_count(board board_in, int debug){
+int white_count(board board_in, int debug)
+{
     (void)debug;
     int count = 0;
     int item;
@@ -141,6 +139,7 @@ boardp copy(board board_in)
 
 int position_evaluate(board board_in, int depth, bool white_to_moveq, int carry, int debug)
 {
+    assert(fast_board_count(board_in) == carry);
     #ifdef dotout
     int val = create_node_incomplete_final(depth);
     link_nodes(debug,val,depth);
@@ -160,7 +159,12 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int carry,
 	#ifdef maxdebug
 	assert(fast_board_count(board_in) == (white_count(board_in,debug) - black_count(board_in,debug))); 
 	#endif
-	assert(fast_board_count(board_in) == carry);
+	if(fast_board_count(board_in) != carry)
+	{
+	    printcolored_board(board_in);
+	    printf("\n%d\n",(white_count(board_in,debug) - black_count(board_in,debug)));
+	    assert(false);
+	}
 	return (carry);
     }
     else
@@ -318,7 +322,14 @@ void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in
 	    x_end = x_in + moves[index][0];
 	    y_end = y_in + moves[index][1];
             ptr  = copy(board_in);
-            (*list_in)[*list_in_index] = (position_evaluate(*move(ptr,x_in,y_in,x_end,y_end,false),depth - 1,!white_to_moveq,carry_determine(board_in,x_end,y_end,carry,white_to_moveq),debug));
+	    ptr = move(ptr,x_in,y_in,x_end,y_end,false);
+	    if(fast_board_count(*ptr) != carry_determine(board_in,x_end,y_end,carry,white_to_moveq))
+	    {
+		printf("carry:%d fast_board_count:%d\n",carry_determine(board_in,x_end,y_end,carry,white_to_moveq),fast_board_count(*ptr));
+		printcolored_board(board_in);
+		assert(false);
+	    }
+            (*list_in)[*list_in_index] = position_evaluate(*ptr,depth - 1,!white_to_moveq,carry_determine(board_in,x_end,y_end,carry,white_to_moveq),debug);
             (*list_in_index)++;
             free(ptr);
         }
