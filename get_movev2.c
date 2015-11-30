@@ -61,7 +61,9 @@ typedef moves_in *moves_inp;*/
 
 move_to_dop get_move(board board_in, int depth,bool white_to_moveq, int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     moves_in list;
     memset(&list,0,sizeof(moves_in));
     int list_index = 0;
@@ -74,12 +76,10 @@ move_to_dop get_move(board board_in, int depth,bool white_to_moveq, int debug)
 
 void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug)
 {
-    ////assert(check_board(board_in));
-    //assert(white_to_moveq);
-    //white_to_moveq
-    //list_in
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     int piece = blank;
-    //list_in_index
     for(int y = 0; y < 8; y++)
 	for(int x = 0; x < 8; x++)
 	{
@@ -106,16 +106,14 @@ void last_call_white(moves_inp list_in,int *list_in_index,board board_in, int de
 		break;
 	    }
 	}
-    //return(min_max(value_list,current_index,white_to_moveq,debug));
 }
 
 void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int depth, bool white_to_moveq, int debug)
 {
-    ////assert(check_board(board_in));
-    //assert(!white_to_moveq);
-    //move_value_list value_list;
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     int piece = blank;
-    //int current_index = 0;
     for(int y = 0; y < 8; y++)
 	for(int x = 0; x < 8; x++)
 	{
@@ -142,7 +140,6 @@ void last_call_black(moves_inp list_in,int *list_in_index,board board_in, int de
 		break;
 	    }
 	}
-    //return(min_max(value_list,current_index,white_to_moveq,debug));
 }
 
 typedef int move_array[
@@ -178,28 +175,31 @@ typedef moves_in *moves_inp;*/
 
 void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq, moves_list moves, int moves_list_length, int debug)
 {
-    (void)white_to_moveq;
-    ////assert(check_board(board_in));
+    int carry;
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     printf("\nlast call %d\n",moves_list_length);
     boardp ptr;
     evals_in list_in_foreval;
     memset(&list_in_foreval,0,sizeof(evals_in));
     printf("length: %d\n",*list_in_index);
     printf("moves list length: %d\n", moves_list_length);
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     if(debug)for(int i = 0; i < *list_in_index;i++)print_move((*list_in)[i]);
     for(int index = 0; index < moves_list_length; index++)
     {
         assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
         ptr  = copy(board_in);
-        list_in_foreval[index] = position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,1);
+	carry = fast_board_count(*ptr);
+        list_in_foreval[index] = position_evaluate(*move(ptr,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1],false),depth - 1,!white_to_moveq,carry,1);
         free(ptr);
     }
-    //results recorded
     move_to_dop current_move;
     for(int index = 0; index < moves_list_length; index++)
     {
-        //assert((*list_in)[*list_in_index] == NULL);
         current_move = malloc(sizeof(move_to_do));
         move_to_do current_forcopy = {list_in_foreval[index],x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]};
         memcpy(current_move,&current_forcopy,sizeof(move_to_do));
@@ -207,7 +207,6 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
         (*list_in_index)++;
     }
     for(int i = 0; i < *list_in_index;i++)print_move((*list_in)[i]);
-    //results copied
 }
 
 /*int move_list_generate(board board_in, int x_in, int y_in,a_move (*final_moves)[], moves_list moves,int length)
@@ -225,7 +224,9 @@ void last_call(moves_inp list_in,int *list_in_index,board board_in,int x_in, int
 
 void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     if(is_white(board_in[y_in][x_in]))
     {
     	a_move white_moves_final[4];
@@ -242,7 +243,9 @@ void last_call_pawn(moves_inp list_in,int *list_in_index,board board_in,int x_in
 
 void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     printf("knight\n");
     a_move final_knight_moves[8];
     int moves_list_length = move_list_generate(board_in,x_in,y_in,&final_knight_moves,knight_moves,8,debug);
@@ -252,7 +255,9 @@ void last_call_knight(moves_inp list_in,int *list_in_index,board board_in,int x_
 
 void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     printf("bishop");
     a_move bishop_moves[8+8];
     int moves_list_length = 0;
@@ -285,7 +290,9 @@ void last_call_bishop(moves_inp list_in,int *list_in_index,board board_in,int x_
 
 void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     printf("queen");
     last_call_rook(list_in,list_in_index,board_in,x_in, y_in,depth,white_to_moveq,debug);
     last_call_bishop(list_in,list_in_index,board_in,x_in,y_in,depth,white_to_moveq,debug);
@@ -293,7 +300,9 @@ void last_call_queen(moves_inp list_in,int *list_in_index,board board_in,int x_i
 
 void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     printf("king");
     a_move final_king_moves[8];
     int moves_list_length = move_list_generate(board_in,x_in,y_in,&final_king_moves,king_moves,8,debug);
@@ -302,7 +311,9 @@ void last_call_king(moves_inp list_in,int *list_in_index,board board_in,int x_in
 
 void last_call_rook(moves_inp list_in,int *list_in_index,board board_in,int x_in, int y_in,int depth,bool white_to_moveq,   int debug)
 {
-    ////assert(check_board(board_in));
+    #ifdef memdebug
+    assert(check_board(board_in));
+    #endif
     printf("rook");
     a_move rook_moves[8+8-2];
     int moves_list_length = 0;

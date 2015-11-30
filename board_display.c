@@ -1,11 +1,11 @@
 #ifndef board_displayD
 #define board_displayD
 #include "state.h"
-//typedef int board[8][8];
 
 void printcolored_board(board board_in)
 {
 	int piece;
+	#ifdef maxdebug
 	for (int index1 = 0; index1 < 8; index1++)
 		{
 			for (int index2 = 0; index2 < 8; index2++)
@@ -16,9 +16,7 @@ void printcolored_board(board board_in)
 			printf("\n");
 		}
 	printf("\n");
-	//
-	//
-	//
+	#endif
 	const char *color_string;
 	const char *background;
 	for (int index1 = 0; index1 < 8; index1++)

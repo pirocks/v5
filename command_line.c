@@ -1,14 +1,12 @@
 #ifndef command_lineD
 #define command_lineD
 #include "state.h"
-//#include "valid.h"
-//#include "position_evaluatev5.h"
 
 void console_ask_for_piece_white(bool ai)
 {
     printcolored_board(global_board);
-	int x_in = -1;
-	int y_in = -1;
+    int x_in = -1;
+    int y_in = -1;
     int error = 0;
     while(error != 1)
     {
@@ -28,10 +26,14 @@ void console_ask_for_piece_black(bool ai)
 {
 	if(ai)
 	{
-	    //init_dot();
-	    //int val = create_node(global_board,white_count(global_board,0)-black_count(global_board,0));
+	    #ifdef dotout
+	    init_dot();
+	    int val = create_node(global_board,white_count(global_board,0)-black_count(global_board,0));
+	    #endif
 	    move_to_dop answer = get_move(global_board,4,false,0);
-	    //close_dot();
+	    #ifdef dotout
+	    close_dot();
+	    #endif
 	    assert(valid(global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4]));
 	    move(&global_board,(*answer)[1],(*answer)[2],(*answer)[3],(*answer)[4],false);
 	    printf("\n");

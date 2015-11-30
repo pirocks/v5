@@ -11,20 +11,6 @@ board global_board_debug = {
     {blank,blank,blank,blank,wking,blank,blank,blank},
     };
 
-/*void print_board(board board_in)
-{
-	for (int index1 = 0; index1 < 8; index1++)
-		{
-			printf("[");
-			for (int index2 = 0; index2 < 8; index2++)
-			{
-				printf("%d,",board_in[index1][index2]);
-			}
-			printf("]\n");
-		}
-	printf("\n");
-}*/
-
 void print_board(board board_in)
 {
 	printcolored_board(board_in);

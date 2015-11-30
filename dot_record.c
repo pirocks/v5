@@ -2,6 +2,7 @@
 #define dot_recordD
 #include "state.h"
 
+#ifdef dotout
 FILE *fp;
 
 char current_node[10];
@@ -202,5 +203,6 @@ void init_struct(node_out *out)
 	(*out).label_index = 0;
 	(*out).value_index = 0;
 }
+#endif
 
 #endif
