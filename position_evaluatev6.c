@@ -96,6 +96,24 @@ int black_count(board board_in, int debug)
     return 10000*count;
 }
 
+//                    blank,wking,wqueen,wrook,wbishop,wknight,wpawn,bking,bqueen,brook,bbishop,bknight,bpawn
+int piece_values[] = {0    ,100  ,9     ,5    ,3      ,3       ,1   ,-100 ,-9    ,-5   ,-3     ,-3     ,-1};
+
+int fast_board_count(board board_in)
+{
+    int count = 0;
+    int item;
+    for (int index = 0; index < 8; index++)
+    {
+        for (int index2 = 0; index2 < 8; index2++)
+	{
+            item = board_in[index][index2];
+            count += piece_values[item];
+        }
+    }
+    return 10000*count;
+}
+
 boardp copy(board board_in)
 {
     ////assert(check_board(board_in));
@@ -124,7 +142,8 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int debug)
 	//sprintf(extra,"\nno min/max was taken\n just returned stuff\n white_to_moveq: %d\n",white_to_moveq);
 	//create_node_id(board_in,(white_count(board_in,debug) - black_count(board_in,debug)),val,extra,depth);
 	//free(extra);
-	return (white_count(board_in,debug) - black_count(board_in,debug));
+	//assert(fast_board_count(board_in) == (white_count(board_in,debug) - black_count(board_in,debug)));
+	return (fast_board_count(board_in));
     }
     else
     {
