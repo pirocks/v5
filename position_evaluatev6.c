@@ -25,7 +25,7 @@ typedef int (*evals_inp)[
 1*(8+8+8+8)//queen
 ];*/
 
-int carry_determine(board board_in, int x_end, int y_end, int carry,bool white_to_moveq)
+int carry_determine(board board_in, int x_end, int y_end, int carry)
 {
     int piece_being_taken = board_in[y_end][x_end];
     return (carry - 10000*piece_values[piece_being_taken]);
@@ -139,7 +139,9 @@ boardp copy(board board_in)
 
 int position_evaluate(board board_in, int depth, bool white_to_moveq, int carry, int debug)
 {
+    #ifdef maxdebug
     assert(fast_board_count(board_in) == carry);
+    #endif
     #ifdef dotout
     int val = create_node_incomplete_final(depth);
     link_nodes(debug,val,depth);
@@ -157,14 +159,14 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int carry,
 	free(extra);
 	#endif
 	#ifdef maxdebug
-	assert(fast_board_count(board_in) == (white_count(board_in,debug) - black_count(board_in,debug))); 
-	#endif
+	assert(fast_board_count(board_in) == (white_count(board_in,debug) - black_count(board_in,debug)));
 	if(fast_board_count(board_in) != carry)
 	{
 	    printcolored_board(board_in);
 	    printf("\n%d\n",(white_count(board_in,debug) - black_count(board_in,debug)));
 	    assert(false);
 	}
+	#endif
 	return (carry);
     }
     else
@@ -323,13 +325,15 @@ void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in
 	    y_end = y_in + moves[index][1];
             ptr  = copy(board_in);
 	    ptr = move(ptr,x_in,y_in,x_end,y_end,false);
+	    #ifdef maxdebug
 	    if(fast_board_count(*ptr) != carry_determine(board_in,x_end,y_end,carry,white_to_moveq))
 	    {
 		printf("carry:%d fast_board_count:%d\n",carry_determine(board_in,x_end,y_end,carry,white_to_moveq),fast_board_count(*ptr));
 		printcolored_board(board_in);
 		assert(false);
 	    }
-            (*list_in)[*list_in_index] = position_evaluate(*ptr,depth - 1,!white_to_moveq,carry_determine(board_in,x_end,y_end,carry,white_to_moveq),debug);
+	    #endif
+            (*list_in)[*list_in_index] = position_evaluate(*ptr,depth - 1,!white_to_moveq,carry_determine(board_in,x_end,y_end,carry),debug);
             (*list_in_index)++;
             free(ptr);
         }

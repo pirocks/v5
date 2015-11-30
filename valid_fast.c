@@ -1,5 +1,23 @@
 #include "state.h"
 
+#pragma poison valid
+#pragma poison print_board
+#pragma poison on_board
+#pragma poison emptyq
+#pragma poison is_white
+#pragma poison is_black
+#pragma poison w_pawn
+#pragma poison rook
+#pragma poison knight
+#pragma poison bishop
+#pragma poison queen
+#pragma poison w_king
+#pragma poison b_pawn
+#pragma poison b_king
+#pragma poison white
+#pragma poison black
+
+
 bool on_board_fast(int x_end,int y_end) 
 {
 	return (x_end < 8 && y_end < 8 && x_end >= 0 && y_end >= 0);
@@ -313,3 +331,8 @@ bool valid_fast(board board_in, int x_in, int y_in, int x_end, int y_end)
 	else
 		return(black_fast(board_in, x_in, y_in, x_end, y_end,piece));
 }
+
+
+
+
+

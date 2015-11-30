@@ -8,12 +8,14 @@
  *
  */
 #include "state.h"
-#include "X11/Xlib.h"
-#include "SDL/SDL_thread.h"
-#include <SDL/SDL.h>
-#include <SDL_image.h>
+#ifdef sdl
+    #include "X11/Xlib.h"
+    #include "SDL/SDL_thread.h"
+    #include <SDL/SDL.h>
+    #include <SDL_image.h>
+#endif
 int debug_warp = 0;
-
+#ifdef sdl
 SDL_Surface *screen;
 SDL_Surface *boardimage;
 SDL_Surface *brook_image;
@@ -59,6 +61,7 @@ board global_board = {
     };
 
 */
+#endif
 board global_board = {
     {brook,bknight,bbishop,bqueen,bking,bbishop,bknight,brook},
     {bpawn,bpawn,bpawn,bpawn,bpawn,bpawn,bpawn,bpawn},
@@ -124,7 +127,7 @@ board global_boardb = {
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //{bl,bl,bl,bl,bl,bl,bl,bl},
     //};*/
-
+#ifdef sdl
 SDL_Surface *optimize (SDL_Surface *surf)
 {
     SDL_Surface *opt = SDL_DisplayFormat(surf);
@@ -392,7 +395,7 @@ void ask_for_move_black(int x_in, int y_in)
 	    ask_for_piece_black();
 	}
 }
-
+#endif
 /*int main()
 {
 	init();
