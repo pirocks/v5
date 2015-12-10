@@ -182,7 +182,7 @@ int position_evaluate(board board_in, int depth, bool white_to_moveq, int carry,
 	    assert(false);
 	}
 	#endif
-	return (carry);
+	return ((white_count(board_in,debug) - black_count(board_in,debug)));
     }
     else
     {

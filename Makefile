@@ -1,5 +1,5 @@
 cc=gcc-4.9
-ccflags=-pg -O0 -std=c99 -Ddotout -Dmaxdebug
+ccflags=-pg -O0 -std=c99 -Ddotout #-Dmaxdebug
 sdlflags=`sdl-config --cflags` `sdl-config --libs` -lSDL_image -lSDL -lX11
 #asanflags=-fsanitize=address -fno-omit-frame-pointer -lasan
 asanflags=
