@@ -25,10 +25,18 @@ typedef int (*evals_inp)[
 1*(8+8+8+8)//queen
 ];*/
 
-int carry_determine(board board_in, int x_end, int y_end, int carry)
+int carry_determine(board board_in, int x_end, int y_end, int carry,bool white_to_moveq)
 {
     int piece_being_taken = board_in[y_end][x_end];
-    return (carry - 10000*piece_values[piece_being_taken]);
+    int out = (carry - 10000*piece_values[piece_being_taken] );
+    //if(piece_being_taken == blank)
+    //{
+    //    if(white_to_moveq)
+    //        out += 1;
+    //    else
+    //        out -= 1;
+    //}
+    return out;
 }
 
 void displayboard_norefresh(board board_in);
@@ -137,10 +145,17 @@ boardp copy(board board_in)
     return board_out;
 }
 
+void printcolored_board(board board_in);
 int position_evaluate(board board_in, int depth, bool white_to_moveq, int carry, int debug)
 {
     #ifdef maxdebug
-    assert(fast_board_count(board_in) == carry);
+    if(fast_board_count(board_in) != carry)
+    {
+        printf("fast:%d\n",fast_board_count(board_in));
+        printf("carry: %d\n",carry);
+        printcolored_board(board_in);
+        assert(0);
+    }
     #endif
     #ifdef dotout
     int val = create_node_incomplete_final(depth);
@@ -318,22 +333,22 @@ void call(evals_inp list_in,int *list_in_index,board board_in,int x_in, int y_in
     {
         if(moves[index][0] != 0 || moves[index][1] != 0)
         {
-	    #ifdef maxdebug
-            assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
-	    #endif
-	    x_end = x_in + moves[index][0];
-	    y_end = y_in + moves[index][1];
+    	    #ifdef maxdebug
+                assert(valid(board_in,x_in,y_in,x_in + moves[index][0],y_in + moves[index][1]));
+    	    #endif
+    	    x_end = x_in + moves[index][0];
+    	    y_end = y_in + moves[index][1];
             ptr  = copy(board_in);
-	    ptr = move(ptr,x_in,y_in,x_end,y_end,false);
-	    #ifdef maxdebug
-	    if(fast_board_count(*ptr) != carry_determine(board_in,x_end,y_end,carry,white_to_moveq))
-	    {
-		printf("carry:%d fast_board_count:%d\n",carry_determine(board_in,x_end,y_end,carry,white_to_moveq),fast_board_count(*ptr));
-		printcolored_board(board_in);
-		assert(false);
-	    }
-	    #endif
-            (*list_in)[*list_in_index] = position_evaluate(*ptr,depth - 1,!white_to_moveq,carry_determine(board_in,x_end,y_end,carry),debug);
+    	    ptr = move(ptr,x_in,y_in,x_end,y_end,false);
+    	    #ifdef maxdebug
+        	    if(fast_board_count(*ptr) != carry_determine(board_in,x_end,y_end,carry,white_to_moveq))
+        	    {
+            		printf("carry:%d fast_board_count:%d\n",carry_determine(board_in,x_end,y_end,carry,white_to_moveq),fast_board_count(*ptr));
+            		printcolored_board(board_in);
+            		assert(false);
+        	    }
+    	    #endif
+            (*list_in)[*list_in_index] = position_evaluate(*ptr,depth - 1,!white_to_moveq,carry_determine(board_in,x_end,y_end,carry,white_to_moveq ),debug);
             (*list_in_index)++;
             free(ptr);
         }

@@ -104,7 +104,7 @@ int create_node(board board_in, int value_in)
 }
 int create_node_id(board board_in, int value_in,int id,const char * extra,int depth)
 {
-	if(depth > 1)
+	if(depth > -1)
 	{
 		fprintf(fp,"a%d [label=\"",id);
 		board_to_string(board_in,fp);
@@ -124,7 +124,7 @@ void label_node(node_out *out,board board_in,int value_in)
 int create_node_incomplete_final(int depth)
 {
 	board_c++;
-	if(depth > 1)
+	if(depth > -1)
 	{
 		fprintf(fp,"a%d;",board_c);
 	}
@@ -132,7 +132,7 @@ int create_node_incomplete_final(int depth)
 }
 void link_nodes(int node1_c,int node2_c,int depth)
 {
-	if(depth > 1)
+	if(depth > -1)
 	fprintf(fp,"a%d -> a%d;\n",node1_c,node2_c);
 }
 

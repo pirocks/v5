@@ -267,6 +267,8 @@ bool b_king(board board_in, int x_in, int y_in, int x_end, int y_end)
 {
 	//printf("\n%d\n",board_in[y_in][x_in]);
 	assert(board_in[y_in][x_in] == bking);
+	if(abs(y_in - y_end) > 1 || abs(x_in - x_end) > 1)
+		return false;
 	if (on_board(x_end,y_end))
 		if(is_white(board_in[y_end][x_end]) || board_in[y_end][x_end] == blank)
 			if(abs(y_in - y_end) == 1 || abs(x_in -x_end) == 1)
