@@ -60,13 +60,8 @@ bool w_pawn_fast(board board_in, int x_in, int y_in, int x_end, int y_end)
 			if (y_in - y_end == 1)
 				if (is_black(board_in[y_end][x_end]))
 					return true;
-				else
-					return false;
-			else
-				return false;
 		}
-		else
-			return false;
+		return false;
 	}
 	return false;
 }

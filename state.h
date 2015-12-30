@@ -1,3 +1,5 @@
+#ifndef stateD
+#define stateD
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
@@ -186,3 +188,4 @@ extern board global_board;
 
 
 int fast_board_count(board board_in);
+#endif

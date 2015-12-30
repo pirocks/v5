@@ -11,7 +11,7 @@ board global_board_debug = {
     {blank,blank,blank,blank,wking,blank,blank,blank},
     };
 
-void print_board(board board_in)
+inline void print_board(board board_in)
 {
 	printcolored_board(board_in);
 }

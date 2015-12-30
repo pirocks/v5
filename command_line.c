@@ -30,7 +30,7 @@ void console_ask_for_piece_black(bool ai)
 	    init_dot();
 	    int val = create_node(global_board,white_count(global_board,0)-black_count(global_board,0));
 	    #endif
-	    move_to_dop answer = get_move(global_board,3,false,0);
+	    move_to_dop answer = get_move(global_board,6,false,0);
 	    #ifdef dotout
 	    close_dot();
 	    #endif
